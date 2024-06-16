@@ -1,28 +1,27 @@
 /* src/components/NavBar.css */
 
 .nav-bar-container {
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .nav-bar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: row-reverse; /* Change the direction to row-reverse */
-  }
-  
-  .nav-bar button {
-    padding: 10px 20px;
-    background-color: rgba(218, 200, 118, 0.8);
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .nav-bar button:hover {
-    background-color: #dd9d69;
-  }
-  
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  gap: 10px;
+  padding: inherit;
+}
+
+.nav-bar button {
+  padding: 10px 20px;
+  background-color: rgba(164, 162, 155, 0.8);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-bar button:hover {
+  background-color: #dd9d69;
+}

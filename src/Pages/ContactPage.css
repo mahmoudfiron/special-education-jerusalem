@@ -1,0 +1,59 @@
+/* src/Pages/ContactPage.css */
+
+.contact-page {
+    text-align: center;
+    position: relative;
+    background: none;
+  }
+  
+  .contact-section {
+    background-color: rgba(240, 240, 240, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 550px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-section h2 {
+    margin-top: 0;
+  }
+  
+  .contact-section .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-direction: row-reverse; /* Align items to start, reverse the direction */
+  }
+  
+  .contact-section label {
+    width: 100px;
+    margin-left: 10px; /* Add space between label and input */
+    text-align: left; /* Align text inside the label to the right */
+    direction: rtl; /* Ensure the text inside the label is right-to-left */
+  }
+  
+  .contact-section input,
+  .contact-section textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    direction: rtl; /* Ensure the text inside the input fields is right-to-left */
+  }
+  
+  .contact-section button {
+    padding: 10px 20px;
+    background-color: #dd9d69;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-section button:hover {
+    background-color: #ffffff;
+    color: #dd9d69;
+  }
+  

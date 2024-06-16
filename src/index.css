@@ -1,9 +1,9 @@
 /* index.css */
 body {
-  background: linear-gradient(to bottom, #555353, #fcfcfc);
+  background: linear-gradient(to bottom, #ffffff, #fcfcfc);
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #555353, #ffffff);
-  background: linear-gradient(to top, #555353, #fcfcfc);
+  background: -webkit-linear-gradient(to top, #ffffff, #ffffff);
+  background: linear-gradient(to top, #ffffff, #ffffff);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;

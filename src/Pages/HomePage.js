@@ -4,8 +4,8 @@ import logo from '../assets/logo.jpg';
 import circle1 from '../assets/circledBlue.jpg';
 import circle2 from '../assets/circledYellow.jpg';
 import circle3 from '../assets/circledRed.jpg';
-import Footer from './Footer';
-import NavBar from '../components/NavBar'; // Import the NavBar component
+import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 
 const images = [
   require('../assets/photo1.png'),
@@ -54,6 +54,8 @@ const HomePage = ({ scrollToContact }) => {
         <p>
           מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי צוות המדריכים
         </p>
+      </div>
+      <div className="image-buttons-section">
         <div className="image-buttons">
           <div className="image-button" onClick={() => window.location.href='/page1'}>
             <img src={circle1} alt="Blue Circle" />
@@ -69,29 +71,6 @@ const HomePage = ({ scrollToContact }) => {
           </div>
         </div>
       </div>
-      <div id="contact-section" className="contact-section">
-        <h2>צור קשר</h2>
-        <form>
-          <div className="form-group">
-            <label htmlFor="name">שם:</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">אימייל:</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone">טלפון:</label>
-            <input type="tel" id="phone" name="phone" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">הודעה:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit">שלח</button>
-        </form>
-      </div>
-      <Footer /> {/* Include the Footer component */}
     </div>
   );
 };
