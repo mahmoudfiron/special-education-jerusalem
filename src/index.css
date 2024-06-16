@@ -1,7 +1,15 @@
+/* index.css */
 body {
-  margin: 0;
+  background: linear-gradient(to bottom, #555353, #fcfcfc);
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #555353, #ffffff);
+  background: linear-gradient(to top, #555353, #fcfcfc);
   font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .App {
