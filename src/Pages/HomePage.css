@@ -57,13 +57,20 @@
 
 .whoAreWe {
   background-color: rgba(255, 255, 255, 0.8);
-  display: inline-block;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+  max-width: 800px; /* Increase max width for larger layout */
+  margin: 20px auto;
+}
+
+.whoAreWe-content {
   max-width: 600px;
   line-height: 1.5;
-  margin: 20px auto;
+  text-align: right;
 }
 
 .whoAreWe h1 {
@@ -72,13 +79,18 @@
 
 .whoAreWe p {
   margin: 0;
-  max-width: 600px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+.whoAreWe-image {
+  max-width: 200px; /* Adjust the size of the image */
+  margin-left: 20px; /* Space between the text and image */
+  padding-left: 25px;
 }
 
 .image-buttons-section {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  padding-bottom: 40px;
 }
 
 .image-buttons {
