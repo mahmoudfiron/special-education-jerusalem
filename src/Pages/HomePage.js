@@ -4,7 +4,8 @@ import logo from '../assets/logo.jpg';
 import circle1 from '../assets/circledBlue.jpg';
 import circle2 from '../assets/circledYellow.jpg';
 import circle3 from '../assets/circledRed.jpg';
-import Footer from './Footer'; // Import the Footer component
+import Footer from './Footer';
+import NavBar from '../components/NavBar'; // Import the NavBar component
 
 const images = [
   require('../assets/photo1.png'),
@@ -16,7 +17,7 @@ const images = [
   require('../assets/photo7.png'),
 ];
 
-const HomePage = () => {
+const HomePage = ({ scrollToContact }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -31,20 +32,18 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (scrollToContact) {
+      document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [scrollToContact]);
+
   return (
     <div className="home-page">
       <header className="header">
         <img src={logo} alt="Logo" className="logo" />
       </header>
-      <div className="nav-bar-container">
-        <nav className="nav-bar">
-          <button>דף הבית</button>
-          <button>אודות</button>
-          <button>הדרכות</button>
-          <button>צור קשר</button>
-          <button>כניסה</button>
-        </nav>
-      </div>
+      <NavBar /> {/* Include the NavBar component */}
       <div className={`background ${fade ? 'fade-in' : 'fade-out'}`}
         style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
       >
@@ -70,7 +69,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="contact-section">
+      <div id="contact-section" className="contact-section">
         <h2>צור קשר</h2>
         <form>
           <div className="form-group">
