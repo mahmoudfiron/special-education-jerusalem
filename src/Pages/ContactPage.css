@@ -3,7 +3,8 @@
 .contact-page {
     text-align: center;
     position: relative;
-    background: none;
+    background: #dd9d69;
+    padding:50px;
   }
   
   .contact-section {
