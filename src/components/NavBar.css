@@ -2,13 +2,16 @@
   border-radius: 0px;
   margin-bottom: 0px;
   
-  
 
 }
 
 .nav-bar {
   display: flex;
   justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 13px 19px;
+
 }
 
 .nav-bar button {
@@ -80,7 +83,7 @@
   border-radius: 5px;
   cursor: pointer;
   align-self: center; /* Align the label in the center vertically */
-  left: 6%;
+  left:4.5%;
 }
 
 .icon-label:hover {
