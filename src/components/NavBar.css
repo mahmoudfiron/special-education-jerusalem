@@ -2,18 +2,20 @@
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
+
 }
 
 .nav-bar {
   display: flex;
-  justify-content: flex-end; /* Align buttons to the right */
+  justify-content: flex-end;
   gap: 10px;
-  background-color: #333;
+  padding: inherit;
+  position: relative;
 }
 
 .nav-bar button {
   padding: 10px 20px;
-  background-color: rgba(164, 162, 155, 0.8);
+  background-color: rgba(218, 200, 118, 0.8);
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
@@ -22,6 +24,21 @@
 
 .nav-bar button:hover {
   background-color: #dd9d69;
+}
+
+.small-label {
+  position: absolute;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Smaller font size for the label */
+  align-self: center; /* Align the label in the center vertically */
+  left: 3%;
+}
+
+.small-label:hover {
+  color: #dd9d69;
 }
 
 .dropdown {
@@ -55,3 +72,31 @@
   background-color: #ddd;
   color: black;
 }
+
+
+
+.icon-label {
+  position: absolute;
+  padding: 10px 15px;
+  color: gold;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center; /* Align the label in the center vertically */
+  left: 6%;
+}
+
+.icon-label:hover {
+  color: white;
+}
+
+.text-label {
+  position: absolute;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px; /* Smaller font size for the label */
+  align-self: center; /* Align the label in the center vertically */
+  left: 1%;
+}
+
+

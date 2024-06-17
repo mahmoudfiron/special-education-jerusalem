@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -32,7 +34,9 @@ const NavBar = () => {
   return (
     <div className="nav-bar-container">
       <nav className="nav-bar">
-        <button onClick={() => handleMenuItemClick('/')}>דף הבית</button>
+        <button onClick={() => handleMenuItemClick('/login')}>כניסה</button>
+        <button onClick={() => handleMenuItemClick('/contact')}>צור קשר</button>
+        <button onClick={() => handleMenuItemClick('/tutorials')}>הדרכות</button>
         <div className="dropdown" ref={dropdownRef}>
           <button onClick={handleDropdownToggle}>תחומי דעת</button>
           {isDropdownOpen && (
@@ -47,9 +51,13 @@ const NavBar = () => {
             </div>
           )}
         </div>
-        <button onClick={() => handleMenuItemClick('/tutorials')}>הדרכות</button>
-        <button onClick={() => handleMenuItemClick('/contact')}>צור קשר</button>
-        <button onClick={() => handleMenuItemClick('/login')}>כניסה</button>
+        <button onClick={() => handleMenuItemClick('/')}>דף הבית</button>
+        <div className="icon-label" onClick={() => navigate('/feedback')}>
+          <FontAwesomeIcon icon={faStar} /> 
+        </div>
+        <div className="text-label">
+            דרגו אותנו
+          </div>
       </nav>
     </div>
   );

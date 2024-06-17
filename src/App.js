@@ -16,6 +16,7 @@ import Layout from './components/Layout'; // Import the Layout component
 import ParentSection from './Pages/ParentSection';
 import WarTime from './Pages/WarTime';
 import EmergencyLearning from './Pages/EmergencyLearning';
+import RatingPage from './Pages/RatingPage';
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/parentsection" element={<ParentSection />} />
             <Route path="/wartime" element={<WarTime />} />
             <Route path="/emergencylearning" element={<EmergencyLearning />} />
+            <Route path="/feedback" element={<RatingPage />} />
             {/* Add other routes similarly */}
           </Routes>
         </Layout>
