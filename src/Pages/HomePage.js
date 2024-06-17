@@ -26,7 +26,7 @@ const HomePage = ({ scrollToContact }) => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
         setFade(true);
       }, 1000); // Transition duration
-    }, 10000); // 10 seconds interval for each image
+    }, 5000); // 10 seconds interval for each image
     return () => clearInterval(interval);
   }, []);
 

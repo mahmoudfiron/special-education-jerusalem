@@ -2,27 +2,37 @@
 .home-page {
   text-align: center;
   position: relative;
-  background: none; /* Ensure no background here */
 }
 
-.header .logo {
+
+.content{
+  top: 100%;
+}
+
+
+
+/* .header .logo {
   width: 100%;
   height: 80px;
   margin: 20px 0;
-}
+} */
 
-.nav-bar-container {
+/* .nav-bar-container {
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
-}
+} */
 
 .nav-bar {
   background-color: #333;
   display: flex;
   justify-content: flex-end; /* Ensure buttons align from right to left */
-  gap: 10px;
+  gap: 20px;
   padding: inherit;
+  width:100%;
+  
+  
+  
 }
 
 .nav-bar button {

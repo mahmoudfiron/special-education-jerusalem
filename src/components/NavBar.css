@@ -1,16 +1,14 @@
 .nav-bar-container {
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
+  border-radius: 0px;
+  margin-bottom: 0px;
+  
+  
 
 }
 
 .nav-bar {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: inherit;
-  position: relative;
+  justify-content: center;
 }
 
 .nav-bar button {

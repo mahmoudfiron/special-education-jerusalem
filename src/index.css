@@ -1,9 +1,10 @@
 /* index.css */
 body {
-  background: linear-gradient(to bottom, #ffffff, #fcfcfc);
+  /* background: linear-gradient(to top, #ffffff, #fcfcfc);
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #ffffff, #ffffff);
-  background: linear-gradient(to top, #ffffff, #ffffff);
+  /* background: -webkit-linear-gradient(to top, #ffffff, #ffffff);
+  background: linear-gradient(to top, #ffffff, #ffffff);  */
+  background-color: grey;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -14,7 +15,6 @@ body {
 
 .App {
   text-align: center;
-  padding: 20px;
 }
 
 h1 {
