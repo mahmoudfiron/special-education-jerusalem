@@ -3,6 +3,7 @@ import './HomePage.css';
 import circle1 from '../assets/circledBlue.jpg';
 import circle2 from '../assets/circledYellow.jpg';
 import circle3 from '../assets/circledRed.jpg';
+import whoAreWe from '../assets/whoarewe.jpeg'
 
 const images = [
   require('../assets/photo1.png'),
@@ -49,19 +50,19 @@ const HomePage = ({ scrollToContact }) => {
             מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי asdצוות המדריכים
           </p>
         </div>
-        <img src={circle1} alt="Who Are We" className="whoAreWe-image" />
+        <img src={whoAreWe} alt="Who Are We" className="whoAreWe-image" />
       </div>
       <div className="image-buttons-section">
         <div className="image-buttons">
-          <div className="image-button" onClick={() => window.location.href='/page1'}>
+          <div className="image-button" onClick={() => window.location.href='/parentsection'}>
             <img src={circle1} alt="Blue Circle" />
             <span className="button-label">תכנים להורים</span>
           </div>
-          <div className="image-button" onClick={() => window.location.href='/page2'}>
+          <div className="image-button" onClick={() => window.location.href='/wartime'}>
             <img src={circle2} alt="Yellow Circle" />
             <span className="button-label">מעני הדרכה נוספים בזמן המלחמה</span>
           </div>
-          <div className="image-button" onClick={() => window.location.href='/page3'}>
+          <div className="image-button" onClick={() => window.location.href='/emergencylearning'}>
             <img src={circle3} alt="Red Circle" />
             <span className="button-label">למידה בשעת חירום</span>
           </div>

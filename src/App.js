@@ -13,6 +13,9 @@ import ArtPage from './Pages/ArtPage';
 import CitizenshipPage from './Pages/CitizenshipPage';
 import BiblePage from './Pages/BiblePage';
 import Layout from './components/Layout'; // Import the Layout component
+import ParentSection from './Pages/ParentSection';
+import WarTime from './Pages/WarTime';
+import EmergencyLearning from './Pages/EmergencyLearning';
 
 const App = () => {
   return (
@@ -32,6 +35,9 @@ const App = () => {
             <Route path="/art" element={<ArtPage />} />
             <Route path="/citizenship" element={<CitizenshipPage />} />
             <Route path="/bible" element={<BiblePage />} />
+            <Route path="/parentsection" element={<ParentSection />} />
+            <Route path="/wartime" element={<WarTime />} />
+            <Route path="/emergencylearning" element={<EmergencyLearning />} />
             {/* Add other routes similarly */}
           </Routes>
         </Layout>
