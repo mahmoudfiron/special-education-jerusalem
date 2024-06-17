@@ -7,9 +7,10 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section contact">
           <h3>צור קשר</h3>
-          <p>כתובת: רחוב החינוך 123, ירושלים</p>
+          <p>כתובת:  מרכז פסגה מנח"י. רחוב מרדכי נרקיס 11. ירושלים.92461
+          </p>
           <p>טלפון: 02-1234567</p>
-          <p>אימייל: info@special-education-jerusalem.org</p>
+          <p>אימייל: homarim556@gmail</p>
         </div>
         <div className="footer-section links">
           <h3>קישורים</h3>
@@ -23,14 +24,13 @@ const Footer = () => {
         <div className="footer-section social">
           <h3>עקבו אחרינו</h3>
           <ul>
-            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/groups/809498406553638" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.youtube.com/channel/UCDx-HPB2f5VEKWrnz6ZY8Bg" target="_blank" rel="noopener noreferrer">youtube</a></li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© 2023 כל הזכויות שמורות למערכת הדרכה ופיקוח לחינוך מיוחד בירושלים</p>
+        <p>© All rights to Mahmoud faroun, Samer nairoukh and wajde</p>
       </div>
     </footer>
   );
