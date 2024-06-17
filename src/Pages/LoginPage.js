@@ -1,14 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
-import NavBar from '../components/NavBar'; // Import the NavBar component
 
 const LoginPage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="login-page">
-      <NavBar /> {/* Include the NavBar component */}
       <div className="login-container">
         <h2>התחברות</h2>
         <form>

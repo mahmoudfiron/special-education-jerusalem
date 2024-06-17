@@ -18,15 +18,17 @@
 }
 
 .nav-bar {
+  background-color: #333;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Ensure buttons align from right to left */
   gap: 10px;
+  padding: inherit;
 }
 
 .nav-bar button {
   padding: 10px 20px;
-  background-color: rgba(218, 200, 118, 0.8);
-  color: rgb(0, 0, 0);
+  background-color: rgba(164, 162, 155, 0.8);
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -35,6 +37,36 @@
 .nav-bar button:hover {
   background-color: #dd9d69;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  padding: 10px 20px;
+  background-color: #444;
+  color: white;
+  border: none;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.dropdown-menu button:hover {
+  background-color: #555;
+}
+
 
 .background {
   background-size: cover;

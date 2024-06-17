@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import logo from '../assets/logo.jpg';
 import circle1 from '../assets/circledBlue.jpg';
 import circle2 from '../assets/circledYellow.jpg';
 import circle3 from '../assets/circledRed.jpg';
-import whoAreWeImage from '../assets/whoarewe.jpeg'; // Adjust the path to your image
-import Footer from '../components/Footer';
-import NavBar from '../components/NavBar';
 
 const images = [
   require('../assets/photo1.png'),
@@ -41,10 +37,6 @@ const HomePage = ({ scrollToContact }) => {
 
   return (
     <div className="home-page">
-      <header className="header">
-        <img src={logo} alt="Logo" className="logo" />
-      </header>
-      <NavBar /> {/* Include the NavBar component */}
       <div className={`background ${fade ? 'fade-in' : 'fade-out'}`}
         style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
       >
@@ -57,7 +49,7 @@ const HomePage = ({ scrollToContact }) => {
             מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי צוות המדריכים
           </p>
         </div>
-        <img src={whoAreWeImage} alt="Who Are We" className="whoAreWe-image" />
+        <img src={circle1} alt="Who Are We" className="whoAreWe-image" />
       </div>
       <div className="image-buttons-section">
         <div className="image-buttons">
