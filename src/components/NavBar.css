@@ -92,7 +92,6 @@
 
 .text-label {
   position: absolute;
-  padding: 10px 15px;
   color: white;
   border-radius: 5px;
   font-size: 14px; /* Smaller font size for the label */
