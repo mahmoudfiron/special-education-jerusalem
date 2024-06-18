@@ -47,7 +47,7 @@ const HomePage = ({ scrollToContact }) => {
         <div className="whoAreWe-content">
           <h1>מי אנחנו</h1>
           <p>
-            מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי asdצוות המדריכים
+            מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי צוות המדריכים
           </p>
         </div>
         <img src={whoAreWe} alt="Who Are We" className="whoAreWe-image" />
@@ -56,15 +56,15 @@ const HomePage = ({ scrollToContact }) => {
         <div className="image-buttons">
           <div className="image-button" onClick={() => window.location.href='/parentsection'}>
             <img src={circle1} alt="Blue Circle" />
-            <span className="button-label">תכנים להורים</span>
+            <h1 className="button-label">תכנים להורים</h1>
           </div>
           <div className="image-button" onClick={() => window.location.href='/wartime'}>
             <img src={circle2} alt="Yellow Circle" />
-            <span className="button-label">מעני הדרכה נוספים בזמן המלחמה</span>
+            <h1 className="button-label">מעני הדרכה נוספים בזמן המלחמה</h1>
           </div>
           <div className="image-button" onClick={() => window.location.href='/emergencylearning'}>
             <img src={circle3} alt="Red Circle" />
-            <span className="button-label">למידה בשעת חירום</span>
+            <h1 className="button-label">למידה בשעת חירום</h1>
           </div>
         </div>
       </div>

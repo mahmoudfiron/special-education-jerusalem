@@ -1,5 +1,5 @@
 .footer {
-  background-color: #333;
+  background-color: #210055;
   color: white;
   padding: 20px 0;
   width: 100%;
@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
+
 }
 
 .footer-section {
@@ -43,7 +44,7 @@
 }
 
 .footer-section ul li a:hover {
-  color: #dd9d60;
+  color: #00aeff;
 }
 
 .footer-bottom {

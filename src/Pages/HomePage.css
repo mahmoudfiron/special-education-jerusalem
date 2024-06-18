@@ -25,14 +25,12 @@
 } */
 
 .nav-bar {                     /* الي جوا الناف بار*/
-  background-color: #333;            
+  background-color: #210055;            
   display: flex;
   justify-content: flex-end; /* Ensure buttons align from right to left */
   gap: 20px;
   padding: 10%;
   width:100%;
-  
-  
   
 }
 
@@ -46,7 +44,7 @@
 }
 
 .nav-bar button:hover {
-  background-color: #dd9d69;
+  background-color: #ffffff;
 }
 
 .dropdown {
