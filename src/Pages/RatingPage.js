@@ -3,6 +3,9 @@ import './RatingPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
+require('../assets/background.avif')
+
+
 const RatingPage = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [currentFeedback, setCurrentFeedback] = useState('');

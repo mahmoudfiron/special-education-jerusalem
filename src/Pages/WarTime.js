@@ -1,6 +1,7 @@
 import React from 'react';
 import './WarTime.css';
 
+require('../assets/background.avif')
 
 const WarTime = () => {
   return (

@@ -1,6 +1,8 @@
 import React from 'react';
 import './ContactPage.css';
 
+require('../assets/background.avif')
+
 const ContactPage = () => {
   return (
     <div className="contact-page">

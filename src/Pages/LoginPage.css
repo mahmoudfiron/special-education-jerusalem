@@ -1,8 +1,9 @@
 .login-page {
   text-align: center;
   position: relative;
-  background: #dd9d69;
   padding:50px;
+  background-image: url('../assets/background.avif');
+
 }
 
 .login-container {

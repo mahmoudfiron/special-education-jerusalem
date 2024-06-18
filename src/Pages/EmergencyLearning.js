@@ -1,6 +1,7 @@
 import React from 'react';
 import './EmergencyLearning.css';
 
+require('../assets/background.avif')
 
 const EmergencyLearning = () => {
   return (

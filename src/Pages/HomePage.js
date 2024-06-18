@@ -13,6 +13,7 @@ const images = [
   require('../assets/photo5.png'),
   require('../assets/photo6.png'),
   require('../assets/photo7.png'),
+  require('../assets/background.avif')
 ];
 
 const HomePage = ({ scrollToContact }) => {

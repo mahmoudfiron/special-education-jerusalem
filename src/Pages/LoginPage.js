@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
+
+require('../assets/background.avif')
+
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);

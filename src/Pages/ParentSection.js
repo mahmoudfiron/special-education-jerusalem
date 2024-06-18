@@ -1,6 +1,7 @@
 import React from 'react';
 import './ParentSection.css';
 
+require('../assets/background.avif')
 
 const ParentSection = () => {
   return (

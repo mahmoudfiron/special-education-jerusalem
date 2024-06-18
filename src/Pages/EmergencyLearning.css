@@ -1,8 +1,9 @@
 /* src/Pages/LinguisticEducationPage.css */
 
-.linguistic-education-page {
+.emergency-learning {
     text-align: center;
     padding: 20px;
+    background-image: url('../assets/background.avif');
   }
   
   .content {

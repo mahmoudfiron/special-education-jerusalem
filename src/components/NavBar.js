@@ -36,7 +36,7 @@ const NavBar = () => {
       <nav className="nav-bar">
         <button onClick={() => handleMenuItemClick('/login')}>כניסה</button>
         <button onClick={() => handleMenuItemClick('/contact')}>צור קשר</button>
-        <button onClick={() => handleMenuItemClick('/tutorials')}>הדרכות</button>
+        <button onClick={() => handleMenuItemClick('/tutorials')}>פורום</button>
         <div className="dropdown" ref={dropdownRef}>
           <button onClick={handleDropdownToggle}>תחומי דעת</button>
           {isDropdownOpen && (
