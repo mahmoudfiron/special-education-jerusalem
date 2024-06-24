@@ -6,22 +6,30 @@ import './NavBar.css';
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [isDropdownOpen, setDropdownOpen] = useState({});
+  const dropdownRefs = useRef({});
 
-  const handleDropdownToggle = () => {
-    setDropdownOpen(!isDropdownOpen);
+  const handleDropdownToggle = (menu) => {
+    setDropdownOpen((prevState) => ({
+      ...prevState,
+      [menu]: !prevState[menu],
+    }));
   };
 
   const handleMenuItemClick = (path) => {
-    setDropdownOpen(false); // Close the dropdown menu
-    navigate(path); // Navigate to the selected page
+    setDropdownOpen({});
+    navigate(path);
   };
 
   const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
-    }
+    Object.keys(dropdownRefs.current).forEach((menu) => {
+      if (dropdownRefs.current[menu] && !dropdownRefs.current[menu].contains(event.target)) {
+        setDropdownOpen((prevState) => ({
+          ...prevState,
+          [menu]: false,
+        }));
+      }
+    });
   };
 
   useEffect(() => {
@@ -35,12 +43,47 @@ const NavBar = () => {
     <div className="nav-bar-container">
       <nav className="nav-bar">
         <button onClick={() => handleMenuItemClick('/login')}>כניסה</button>
-        <button onClick={() => handleMenuItemClick('/contact')}>צור קשר</button>
-        <button onClick={() => handleMenuItemClick('/tutorials')}>פורום</button>
-        <div className="dropdown" ref={dropdownRef}>
-          <button onClick={handleDropdownToggle}>תחומי דעת</button>
-          {isDropdownOpen && (
-            <div className="dropdown-content">
+        <div className="dropdown" ref={(el) => (dropdownRefs.current['pedagogical-coordination'] = el)}>
+          <button onClick={() => handleDropdownToggle('pedagogical-coordination')}>ריכוז פדגוגי</button>
+        </div>
+        <div className="dropdown" ref={(el) => (dropdownRefs.current['populations'] = el)}>
+          <button onClick={() => handleDropdownToggle('populations')}>אוכלוסיות</button>
+          {isDropdownOpen['populations'] && (
+            <div className="dropdown-menu">
+              <button onClick={() => handleMenuItemClick('/early-childhood')}>גיל הרך</button>
+              <button onClick={() => handleMenuItemClick('/challenging-behavior')}>התנהגות מאתגרת</button>
+              <button onClick={() => handleMenuItemClick('/ana')}>אנ"ה</button>
+              <button onClick={() => handleMenuItemClick('/teacher-as-beacon')}>המורה כמגדלור</button>
+              <button onClick={() => handleMenuItemClick('/cvi')}>CVI</button>
+            </div>
+          )}
+        </div>
+        <div className="dropdown" ref={(el) => (dropdownRefs.current['technopedagogy'] = el)}>
+          <button onClick={() => handleDropdownToggle('technopedagogy')}>טכנופדגוגיה</button>
+        </div>
+        <div className="dropdown" ref={(el) => (dropdownRefs.current['youth-society'] = el)}>
+          <button onClick={() => handleDropdownToggle('youth-society')}>חברה ונוער</button>
+          {isDropdownOpen['youth-society'] && (
+            <div className="dropdown-menu">
+              <button onClick={() => handleMenuItemClick('/social-educational-community')}>חינוך חברת ערכי קהילתי</button>
+              <button onClick={() => handleMenuItemClick('/shl')}>של"ח</button>
+            </div>
+          )}
+        </div>
+        <div className="dropdown" ref={(el) => (dropdownRefs.current['life-preparation'] = el)}>
+          <button onClick={() => handleDropdownToggle('life-preparation')}>הכנה לחיים</button>
+          {isDropdownOpen['life-preparation'] && (
+            <div className="dropdown-menu">
+              <button onClick={() => handleMenuItemClick('/transitions')}>מעברים</button>
+              <button onClick={() => handleMenuItemClick('/life-preparation-21')}>הכנה לחיים - לב 21</button>
+              <button onClick={() => handleMenuItemClick('/social-sexual-education')}>חינוך מיני חברתי</button>
+            </div>
+          )}
+        </div>
+        <div className="dropdown" ref={(el) => (dropdownRefs.current['discipline-areas'] = el)}>
+          <button onClick={() => handleDropdownToggle('discipline-areas')}>תחומי דעת</button>
+          {isDropdownOpen['discipline-areas'] && (
+            <div className="dropdown-menu">
               <button onClick={() => handleMenuItemClick('/linguistic-education')}>חינוך לשוני</button>
               <button onClick={() => handleMenuItemClick('/math')}>מתמטיקה</button>
               <button onClick={() => handleMenuItemClick('/science')}>מדע וטכנולוגיה</button>
