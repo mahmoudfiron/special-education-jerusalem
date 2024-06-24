@@ -6,13 +6,18 @@ import TutorialsPage from './Pages/TutorialsPage';
 import ContactPage from './Pages/ContactPage';
 import LoginPage from './Pages/LoginPage';
 import LinguisticEducationPage from './Pages/LinguisticEducationPage';
-import MathPage from './Pages/MathPage';
+import MathHomePage from './Pages/MathHomePage';
+import MathCurriculum from './Pages/MathCurriculum';
+import MathMappingAssessment from './Pages/MathMappingAssessment';
+import MathActivities from './Pages/MathActivities';
+import MathFunctionalMath from './Pages/MathFunctionalMath';
+import MathTeachingStrategies from './Pages/MathTeachingStrategies';
 import SciencePage from './Pages/SciencePage';
 import EnglishPage from './Pages/EnglishPage';
 import ArtPage from './Pages/ArtPage';
 import CitizenshipPage from './Pages/CitizenshipPage';
 import BiblePage from './Pages/BiblePage';
-import Layout from './components/Layout'; // Import the Layout component
+import Layout from './components/Layout';
 import ParentSection from './Pages/ParentSection';
 import WarTime from './Pages/WarTime';
 import EmergencyLearning from './Pages/EmergencyLearning';
@@ -32,7 +37,12 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/linguistic-education" element={<LinguisticEducationPage />} />
-            <Route path="/math" element={<MathPage />} />
+            <Route path="/math-home" element={<MathHomePage />} />
+            <Route path="/math-curriculum" element={<MathCurriculum />} />
+            <Route path="/math-mapping-assessment" element={<MathMappingAssessment />} />
+            <Route path="/math-activities" element={<MathActivities />} />
+            <Route path="/functional-math" element={<MathFunctionalMath />} />
+            <Route path="/teaching-strategies" element={<MathTeachingStrategies />} />
             <Route path="/science" element={<SciencePage />} />
             <Route path="/english" element={<EnglishPage />} />
             <Route path="/art" element={<ArtPage />} />
@@ -42,12 +52,8 @@ const App = () => {
             <Route path="/wartime" element={<WarTime />} />
             <Route path="/emergencylearning" element={<EmergencyLearning />} />
             <Route path="/feedback" element={<RatingPage />} />
-            <Route path="/math" element={<MathPage />} />
             <Route path="/upload-content" element={<ContentUpload />} />
             <Route path="/content-list" element={<ContentList />} />
-            
-            
-            {/* Add other routes similarly */}
           </Routes>
         </Layout>
       </div>
