@@ -99,3 +99,44 @@
   align-self: center; /* Align the label in the center vertically */
   left: 1%;
 }
+
+
+
+
+.sign-in-icon {
+  padding: 10px;
+  position: absolute;
+  right: 6%;
+  background-color: rgba(218, 200, 118, 0.8);
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Adjust size as needed */
+}
+
+
+.sign-in-icon:hover {
+  background-color: #dd9d69;
+}
+
+
+.home-icon{
+  position: absolute;
+  padding: 10px;
+  background-color: rgba(218, 200, 118, 0.8);
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  right: 2%;
+  font-size: 1.5rem; /* Adjust size as needed */
+}
+
+.home-icon:hover {
+  background-color: #dd9d69;
+}
