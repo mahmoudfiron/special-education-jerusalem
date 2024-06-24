@@ -22,6 +22,16 @@ const NavBar = () => {
     setDropdownOpen({});
     if (currentTopic !== topic) {
       setCurrentTopic(topic);
+      if (topic === 'math') {
+        navigate('/math-home');
+        return;
+      } else if (topic === 'linguistic-education') {
+        navigate('/linguistic-education-home');
+        return;
+      } else if (topic === 'english') {
+        navigate('/english-home');
+        return;
+      }
     }
     navigate(path);
   };
@@ -115,14 +125,14 @@ const NavBar = () => {
 
   const linguisticEducationButtons = (
     <>
-      <button onClick={() => handleMenuItemClick('/arabic-linguistic-education')}>חינוך לשוני בערבית</button>
-      <button onClick={() => handleMenuItemClick('/assessment')}>הערכה</button>
-      <button onClick={() => handleMenuItemClick('/meta-linguistic-knowledge')}>ידע מטא לשוני</button>
-      <button onClick={() => handleMenuItemClick('/listening-speaking')}>האזנה ודיבור</button>
-      <button onClick={() => handleMenuItemClick('/writing')}>כתיבה</button>
-      <button onClick={() => handleMenuItemClick('/reading')}>קריאה</button>
-      <button onClick={() => handleMenuItemClick('/curriculum')}>תכניות לימודים</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-home')}>דף ראשי חינוך לשוני</button>
+      <button onClick={() => handleMenuItemClick('/arabic-linguistic-education', 'linguistic-education')}>חינוך לשוני בערבית</button>
+      <button onClick={() => handleMenuItemClick('/assessment', 'linguistic-education')}>הערכה</button>
+      <button onClick={() => handleMenuItemClick('/meta-linguistic-knowledge', 'linguistic-education')}>ידע מטא לשוני</button>
+      <button onClick={() => handleMenuItemClick('/listening-speaking', 'linguistic-education')}>האזנה ודיבור</button>
+      <button onClick={() => handleMenuItemClick('/writing', 'linguistic-education')}>כתיבה</button>
+      <button onClick={() => handleMenuItemClick('/reading', 'linguistic-education')}>קריאה</button>
+      <button onClick={() => handleMenuItemClick('/curriculum', 'linguistic-education')}>תכניות לימודים</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-home', 'linguistic-education')}>דף ראשי חינוך לשוני</button>
     </>
   );
 
