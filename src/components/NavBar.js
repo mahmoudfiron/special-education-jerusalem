@@ -7,7 +7,7 @@ import './NavBar.css';
 const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState({});
   const dropdownRefs = useRef({});
   const [currentTopic, setCurrentTopic] = useState('');
 
@@ -46,6 +46,10 @@ const NavBar = () => {
     const path = location.pathname;
     if (path.startsWith('/linguistic-education')) {
       setCurrentTopic('linguistic-education');
+    } else if (path.startsWith('/math')) {
+      setCurrentTopic('math');
+    } else if (path.startsWith('/english')) {
+      setCurrentTopic('english');
     } else {
       setCurrentTopic('');
     }
@@ -53,12 +57,9 @@ const NavBar = () => {
 
   const mainButtons = (
     <>
-      
-    
       <div className="dropdown" ref={(el) => (dropdownRefs.current['pedagogical-coordination'] = el)}>
         <button onClick={() => handleDropdownToggle('pedagogical-coordination')}>ריכוז פדגוגי</button>
       </div>
-
       <div className="dropdown" ref={(el) => (dropdownRefs.current['populations'] = el)}>
         <button onClick={() => handleDropdownToggle('populations')}>אוכלוסיות</button>
         {isDropdownOpen['populations'] && (
@@ -74,7 +75,6 @@ const NavBar = () => {
       <div className="dropdown" ref={(el) => (dropdownRefs.current['technopedagogy'] = el)}>
         <button onClick={() => handleDropdownToggle('technopedagogy')}>טכנופדגוגיה</button>
       </div>
-
       <div className="dropdown" ref={(el) => (dropdownRefs.current['youth-society'] = el)}>
         <button onClick={() => handleDropdownToggle('youth-society')}>חברה ונוער</button>
         {isDropdownOpen['youth-society'] && (
@@ -84,11 +84,6 @@ const NavBar = () => {
           </div>
         )}
       </div>
-
-
-
-
-
       <div className="dropdown" ref={(el) => (dropdownRefs.current['life-preparation'] = el)}>
         <button onClick={() => handleDropdownToggle('life-preparation')}>הכנה לחיים</button>
         {isDropdownOpen['life-preparation'] && (
@@ -104,16 +99,15 @@ const NavBar = () => {
         {isDropdownOpen['discipline-areas'] && (
           <div className="dropdown-menu">
             <button onClick={() => handleMenuItemClick('/linguistic-education', 'linguistic-education')}>חינוך לשוני</button>
-            <button onClick={() => handleMenuItemClick('/math')}>מתמטיקה</button>
+            <button onClick={() => handleMenuItemClick('/math', 'math')}>מתמטיקה</button>
             <button onClick={() => handleMenuItemClick('/science')}>מדע וטכנולוגיה</button>
-            <button onClick={() => handleMenuItemClick('/english')}>אנגלית</button>
+            <button onClick={() => handleMenuItemClick('/english', 'english')}>אנגלית</button>
             <button onClick={() => handleMenuItemClick('/art')}>אמנות</button>
             <button onClick={() => handleMenuItemClick('/citizenship')}>אזרחות</button>
             <button onClick={() => handleMenuItemClick('/bible')}>תנ"ך</button>
           </div>
         )}
       </div>
-
     </>
   );
 
@@ -131,10 +125,38 @@ const NavBar = () => {
     </>
   );
 
+  const mathButtons = (
+    <>
+      <button onClick={() => handleMenuItemClick('/teaching-strategies')}>אסטרטגיות להוראה מותאמת</button>
+      <button onClick={() => handleMenuItemClick('/functional-math')}>חשבון פונקציונאלי</button>
+      <button onClick={() => handleMenuItemClick('/math-activities')}>פעילויות במתמטיקה</button>
+      <button onClick={() => handleMenuItemClick('/math-mapping-assessment')}>מיפוי והערכה</button>
+      <button onClick={() => handleMenuItemClick('/math-curriculum')}>מתווים ותוכניות לימודים</button>
+      <button onClick={() => handleMenuItemClick('/math-home')}>דף ראשי מתמטיקה</button>
+
+    </>
+  );
+
+  const englishButtons = (
+    <>
+      <button onClick={() => handleMenuItemClick('/exams')}>בגרויות</button>
+      <button onClick={() => handleMenuItemClick('/assessments')}>מבדקים</button>
+      <button onClick={() => handleMenuItemClick('/technology-tools')}>כלים טכנולוגיים</button>
+      <button onClick={() => handleMenuItemClick('/teaching-tools')}>כלים להוראה מיטבית</button>
+      <button onClick={() => handleMenuItemClick('/teaching-materials')}>חומרי הוראה</button>
+      <button onClick={() => handleMenuItemClick('/english-curriculum')}>תכנית הלימודים</button>
+      <button onClick={() => handleMenuItemClick('/english-home')}>דף ראשי אנגלית</button>
+    </>
+  );
+
   const renderButtons = () => {
     switch (currentTopic) {
       case 'linguistic-education':
         return linguisticEducationButtons;
+      case 'math':
+        return mathButtons;
+      case 'english':
+        return englishButtons;
       default:
         return mainButtons;
     }
