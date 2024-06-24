@@ -1,0 +1,94 @@
+/* MathHomePage.css */
+
+/* General container styling */
+.math-home-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for the upload section */
+  .content-upload {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .content-upload h2 {
+    margin-bottom: 20px;
+  }
+  
+  .content-upload form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content-upload input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .content-upload textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .content-upload button {
+    padding: 10px 20px;
+    background-color: #dd9d69;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .content-upload button:hover {
+    background-color: #ffffff;
+    color: #dd9d69;
+  }
+  
+  /* Styling for the posts container */
+  .posts-container {
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  .post {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  .post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .post .post-content {
+    margin-bottom: 10px;
+  }
+  
+  .post button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .post button:hover {
+    background-color: #c0392b;
+  }
+  

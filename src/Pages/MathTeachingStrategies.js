@@ -1,10 +1,13 @@
 import React from 'react';
+import ContentUpload from '../components/ContentUpload';
+import ContentList from '../components/ContentList';
 
 const MathTeachingStrategies = () => {
   return (
     <div>
-      <h1>Math Teaching Strategies</h1>
-      {/* Add page-specific content here */}
+      <h1>אסטרטגיות להוראה מותאמת</h1>
+      <ContentUpload collectionName="math-teaching-strategies" />
+      <ContentList collectionName="math-teaching-strategies" />
     </div>
   );
 };

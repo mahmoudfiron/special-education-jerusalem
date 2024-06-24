@@ -1,58 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { db, auth } from '../firebase';
-import { collection, query, orderBy, onSnapshot, deleteDoc, doc, getDoc } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { collection, query, onSnapshot, deleteDoc, doc } from 'firebase/firestore';
+import { db } from '../firebase';
 import './ContentList.css';
+import '../Pages/MathHomePage.css';
 
-const ContentList = () => {
+const ContentList = ({ collectionName }) => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
-
   useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        checkUserRole(currentUser.uid);
-      } else {
-        setUser(null);
-      }
-    });
-
-    const q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'));
-    const unsubscribePosts = onSnapshot(q, (querySnapshot) => {
-      const postsArray = [];
+    const q = query(collection(db, collectionName));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const postsData = [];
       querySnapshot.forEach((doc) => {
-        postsArray.push({ ...doc.data(), id: doc.id });
+        postsData.push({ id: doc.id, ...doc.data() });
       });
-      setPosts(postsArray);
+      setPosts(postsData);
     });
-
-    return () => {
-      unsubscribeAuth();
-      unsubscribePosts();
-    };
-  }, []);
-
-  const checkUserRole = async (uid) => {
-    const userDoc = await getDoc(doc(db, 'users', uid));
-    if (userDoc.exists()) {
-      const userData = userDoc.data();
-      if (userData.role !== 'guide') {
-        setUser(null);
-      }
-    }
-  };
+    return () => unsubscribe();
+  }, [collectionName]);
 
   const handleDelete = async (id) => {
-    try {
-      await deleteDoc(doc(db, 'posts', id));
-      setPosts(posts.filter(post => post.id !== id));
-    } catch (error) {
-      console.error('Error deleting post:', error.message);
-    }
+    await deleteDoc(doc(db, collectionName, id));
   };
 
-  return (
+ return (
     <div className="content-list">
       {posts.map((post) => (
         <div key={post.id} className="content-item">

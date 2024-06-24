@@ -4,10 +4,10 @@ import ContentList from '../components/ContentList';
 
 const MathHomePage = () => {
   return (
-    <div>
+    <div className="math-home-page">
       <h1>Math Home Page</h1>
-      <ContentUpload />
-      <ContentList />
+      <ContentUpload collectionName="math-home-posts" />
+      <ContentList collectionName="math-home-posts" />
     </div>
   );
 };

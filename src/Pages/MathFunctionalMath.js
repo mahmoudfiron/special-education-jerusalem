@@ -1,10 +1,13 @@
 import React from 'react';
+import ContentUpload from '../components/ContentUpload';
+import ContentList from '../components/ContentList';
 
 const MathFunctionalMath = () => {
   return (
     <div>
-      <h1>Functional Math</h1>
-      {/* Add page-specific content here */}
+      <h1>חשבון פונקציונאלי</h1>
+      <ContentUpload collectionName="math-functional-math" />
+      <ContentList collectionName="math-functional-math" />
     </div>
   );
 };
