@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faHome, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faHome, faSignInAlt, faUpload } from '@fortawesome/free-solid-svg-icons';
 import './NavBar.css';
+import { auth, db } from '../firebase';
+import { getDoc, doc } from 'firebase/firestore';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -10,6 +12,27 @@ const NavBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState({});
   const dropdownRefs = useRef({});
   const [currentTopic, setCurrentTopic] = useState('');
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUserRole = async (uid) => {
+      const userDoc = await getDoc(doc(db, 'users', uid));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        setUser({ ...userData, uid: uid });
+      }
+    };
+
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        fetchUserRole(currentUser.uid);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleDropdownToggle = (menu) => {
     setDropdownOpen((prevState) => ({
@@ -133,7 +156,6 @@ const NavBar = () => {
       <button onClick={() => handleMenuItemClick('/math-mapping-assessment')}>מיפוי והערכה</button>
       <button onClick={() => handleMenuItemClick('/math-curriculum')}>מתווים ותוכניות לימודים</button>
       <button onClick={() => handleMenuItemClick('/math-home')}>דף ראשי מתמטיקה</button>
-
     </>
   );
 
@@ -168,6 +190,11 @@ const NavBar = () => {
         <div className="icon-label" onClick={() => navigate('/feedback')}>
           <FontAwesomeIcon icon={faStar} />
         </div>
+        {user && user.role === 'guide' && (
+          <div className="nav-buttons">
+            <button onClick={() => handleMenuItemClick('/upload-content')}>Upload Content</button>
+          </div>
+        )}
         <div className="nav-buttons">
           {renderButtons()}
         </div>
@@ -186,3 +213,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

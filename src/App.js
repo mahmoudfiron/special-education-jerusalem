@@ -17,6 +17,8 @@ import ParentSection from './Pages/ParentSection';
 import WarTime from './Pages/WarTime';
 import EmergencyLearning from './Pages/EmergencyLearning';
 import RatingPage from './Pages/RatingPage';
+import ContentUpload from './components/ContentUpload';
+import ContentList from './components/ContentList';
 
 const App = () => {
   return (
@@ -41,6 +43,9 @@ const App = () => {
             <Route path="/emergencylearning" element={<EmergencyLearning />} />
             <Route path="/feedback" element={<RatingPage />} />
             <Route path="/math" element={<MathPage />} />
+            <Route path="/upload-content" element={<ContentUpload />} />
+            <Route path="/content-list" element={<ContentList />} />
+            
             
             {/* Add other routes similarly */}
           </Routes>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -9,12 +10,17 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
+  const [role, setRole] = useState('user'); // Default role to 'user'
 
   const handleAuth = async (event) => {
     event.preventDefault();
     try {
       if (isSignUp) {
-        await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, 'users', userCredential.user.uid), {
+          email: email,
+          role: role,
+        });
         alert('User signed up successfully!');
       } else {
         await signInWithEmailAndPassword(auth, email, password);
@@ -51,6 +57,15 @@ const LoginPage = () => {
               required
             />
           </div>
+          {isSignUp && (
+            <div className="form-group">
+              <label htmlFor="role">Role:</label>
+              <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="user">User</option>
+                <option value="guide">Guide</option>
+              </select>
+            </div>
+          )}
           <button type="submit">{isSignUp ? 'Sign Up' : 'Login'}</button>
         </form>
         <button className="toggle-auth" onClick={() => setIsSignUp(!isSignUp)}>
