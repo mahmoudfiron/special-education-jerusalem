@@ -1,11 +1,13 @@
 import React from 'react';
-import './MathPage.css';
+import ContentUpload from '../components/ContentUpload';
+import ContentList from '../components/ContentList';
 
 const MathPage = () => {
   return (
-    <div className="math-page">
-      <h1>מתמטיקה</h1>
-      <p>תוכן לדף מתמטיקה.</p>
+    <div>
+      <h1>Math Page</h1>
+      <ContentUpload />
+      <ContentList />
     </div>
   );
 };

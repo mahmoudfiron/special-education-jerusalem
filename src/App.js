@@ -40,6 +40,8 @@ const App = () => {
             <Route path="/wartime" element={<WarTime />} />
             <Route path="/emergencylearning" element={<EmergencyLearning />} />
             <Route path="/feedback" element={<RatingPage />} />
+            <Route path="/math" element={<MathPage />} />
+            
             {/* Add other routes similarly */}
           </Routes>
         </Layout>
