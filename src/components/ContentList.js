@@ -27,8 +27,9 @@ const ContentList = ({ collectionName }) => {
     <div className="content-list">
       {posts.map((post) => (
         <div key={post.id} className="content-item">
+          <h1>{post.text}</h1>
           {post.fileUrl && <img src={post.fileUrl} alt="uploaded" />}
-          <p>{post.description}</p>
+          
           {user && (
             <button onClick={() => handleDelete(post.id)}>Delete</button>
           )}
