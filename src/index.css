@@ -4,13 +4,15 @@ body {
   /* fallback for old browsers */
   /* background: -webkit-linear-gradient(to top, #ffffff, #ffffff);
   background: linear-gradient(to top, #ffffff, #ffffff);  */
-  background-color: grey;
+  background-image: url('assets/my-background.webp');
+	background-size: contain;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  
   
 }
 

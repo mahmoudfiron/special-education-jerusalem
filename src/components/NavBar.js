@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faHome, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faHome } from '@fortawesome/free-solid-svg-icons';
+import { auth } from '../firebase';
+import { signOut } from 'firebase/auth';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -11,12 +13,19 @@ const NavBar = () => {
   const dropdownRefs = useRef({});
   const [currentTopic, setCurrentTopic] = useState('');
 
+
+
+
   const handleDropdownToggle = (menu) => {
     setDropdownOpen((prevState) => ({
       ...prevState,
       [menu]: !prevState[menu],
     }));
   };
+
+
+
+
 
   const handleMenuItemClick = (path, topic = '') => {
     setDropdownOpen({});
@@ -125,13 +134,13 @@ const NavBar = () => {
 
   const linguisticEducationButtons = (
     <>
-      <button onClick={() => handleMenuItemClick('/arabic-linguistic-education', 'linguistic-education')}>חינוך לשוני בערבית</button>
-      <button onClick={() => handleMenuItemClick('/assessment', 'linguistic-education')}>הערכה</button>
-      <button onClick={() => handleMenuItemClick('/meta-linguistic-knowledge', 'linguistic-education')}>ידע מטא לשוני</button>
-      <button onClick={() => handleMenuItemClick('/listening-speaking', 'linguistic-education')}>האזנה ודיבור</button>
-      <button onClick={() => handleMenuItemClick('/writing', 'linguistic-education')}>כתיבה</button>
-      <button onClick={() => handleMenuItemClick('/reading', 'linguistic-education')}>קריאה</button>
-      <button onClick={() => handleMenuItemClick('/curriculum', 'linguistic-education')}>תכניות לימודים</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-arabic', 'linguistic-education')}>חינוך לשוני בערבית</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-assessment', 'linguistic-education')}>הערכה</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-meta-linguistic-knowledge', 'linguistic-education')}>ידע מטא לשוני</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-listening-speaking', 'linguistic-education')}>האזנה ודיבור</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-writing', 'linguistic-education')}>כתיבה</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-reading', 'linguistic-education')}>קריאה</button>
+      <button onClick={() => handleMenuItemClick('/linguistic-education-curriculum', 'linguistic-education')}>תכניות לימודים</button>
       <button onClick={() => handleMenuItemClick('/linguistic-education-home', 'linguistic-education')}>דף ראשי חינוך לשוני</button>
     </>
   );
@@ -149,11 +158,11 @@ const NavBar = () => {
 
   const englishButtons = (
     <>
-      <button onClick={() => handleMenuItemClick('/exams', 'english')}>בגרויות</button>
-      <button onClick={() => handleMenuItemClick('/assessments', 'english')}>מבדקים</button>
-      <button onClick={() => handleMenuItemClick('/technology-tools', 'english')}>כלים טכנולוגיים</button>
-      <button onClick={() => handleMenuItemClick('/teaching-tools', 'english')}>כלים להוראה מיטבית</button>
-      <button onClick={() => handleMenuItemClick('/teaching-materials', 'english')}>חומרי הוראה</button>
+      <button onClick={() => handleMenuItemClick('/english-exams', 'english')}>בגרויות</button>
+      <button onClick={() => handleMenuItemClick('/english-assessments', 'english')}>מבדקים</button>
+      <button onClick={() => handleMenuItemClick('/english-technology-tools', 'english')}>כלים טכנולוגיים</button>
+      <button onClick={() => handleMenuItemClick('/english-teaching-tools', 'english')}>כלים להוראה מיטבית</button>
+      <button onClick={() => handleMenuItemClick('/english-teaching-materials', 'english')}>חומרי הוראה</button>
       <button onClick={() => handleMenuItemClick('/english-curriculum', 'english')}>תכנית הלימודים</button>
       <button onClick={() => handleMenuItemClick('/english-home', 'english')}>דף ראשי אנגלית</button>
     </>
@@ -172,6 +181,24 @@ const NavBar = () => {
     }
   };
 
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate('/');
+  };
+
+
+
   return (
     <div className="nav-bar-container">
       <nav className="nav-bar">
@@ -187,9 +214,10 @@ const NavBar = () => {
         <div className="text-label" onClick={() => navigate('/feedback')}>
           דרגו אותנו
         </div>
-        <div className="sign-in-icon" onClick={() => handleMenuItemClick('/login')}>
-          <FontAwesomeIcon icon={faSignInAlt} />
-        </div>
+        <div className="auth-button">
+          {user ? (<button onClick={handleLogout}>Logout</button>) : 
+          (<button onClick={() => handleMenuItemClick('/login')}>Sign In</button>)}
+      </div>
       </nav>
     </div>
   );

@@ -2,8 +2,6 @@
   border-radius: 0px;
   margin-bottom: 0px;
   
-  
-
 }
 
 .nav-bar {
@@ -26,23 +24,9 @@
 
 .nav-bar button:hover {
   background-color: #b0e9ff;
-  color: #00aeff;
+  color: rgb(72,156,172);
 }
 
-.small-label {
-  position: absolute;
-  padding: 10px 15px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px; /* Smaller font size for the label */
-  align-self: center; /* Align the label in the center vertically */
-  left: 3%;
-}
-
-.small-label:hover {
-  color: #3422bd;
-}
 
 .dropdown {
   position: relative;
@@ -85,7 +69,7 @@
   border-radius: 5px;
   cursor: pointer;
   align-self: center; /* Align the label in the center vertically */
-  left:4.5%;
+  left:6%;
 }
 
 .icon-label:hover {
@@ -104,42 +88,46 @@
 }
 
 
-
-
-.sign-in-icon {
-  padding: 15px;
-  position: absolute;
-  right: 6%;
-  background-color: #4aa1c9;
-  border-radius: 50%;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem; /* Adjust size as needed */
-}
-
-
-.sign-in-icon:hover {
-  background-color: #bfebff;
-}
-
-
+ 
 .home-icon{
   position: absolute;
   padding: 15px;
-  background-color: #4aa1c9;
+  /* background-color: rgb(72,156,172); */
   border-radius: 50%;
   color: rgb(255, 255, 255);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: right;
-  right: 2%;
-  font-size: 1.5rem; /* Adjust size as needed */
+  right: 0.5%;
+  font-size: 1.2rem; /* Adjust size as needed */
 }
 
 .home-icon:hover {
-  background-color: #bfebff;
+  /* background-color: #bfebff; */
+  color: rgb(72,156,172);
+}
+
+.auth-button {
+  position: absolute;
+  right: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.auth-button button {
+  padding: 5px 10px;
+  background-color: rgb(72,156,172);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: small;
+}
+
+.auth-button button:hover {
+  background-color: #b0e9ff;
+  color: rgb(72,156,172);
 }

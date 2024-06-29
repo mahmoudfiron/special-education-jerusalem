@@ -41,8 +41,8 @@ const App = () => {
             <Route path="/math-curriculum" element={<MathCurriculum />} />
             <Route path="/math-mapping-assessment" element={<MathMappingAssessment />} />
             <Route path="/math-activities" element={<MathActivities />} />
-            <Route path="/functional-math" element={<MathFunctionalMath />} />
-            <Route path="/teaching-strategies" element={<MathTeachingStrategies />} />
+            <Route path="/math-functional" element={<MathFunctionalMath />} />
+            <Route path="/math-teaching-strategies" element={<MathTeachingStrategies />} />
             <Route path="/science" element={<SciencePage />} />
             <Route path="/english" element={<EnglishPage />} />
             <Route path="/art" element={<ArtPage />} />

@@ -2,79 +2,65 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 50%;
+  min-height: 500px;
 }
 
-.post {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 5px;
+.content-item {
+  background-color: rgba(172, 223, 226, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 10px 0;
+  text-align: right;
+  position: relative;
+}
+
+.post-header {
+  display: grid;
+  justify-content: space-between;
   margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  color: #555;
+}
+
+.post-author {
+  font-weight: bold;
+}
+
+.post-date {
+  font-size: 15px;
+  color: #888;
+}
+
+.post-content p {
+  margin: 10px 0;
 }
 
 .uploaded-image {
   max-width: 100%;
   height: auto;
+  max-height: 400px; /* set a max height */
+  object-fit: cover;
+  border-radius: 5px;
   margin-top: 10px;
 }
 
-
-.content-item {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 20px;
-  text-align: center;
-  position: relative; /* Add this line */
-}
-
-.content-item img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.content-item button {
+.delete-button {
   padding: 10px 20px;
-  background-color: #4aa1c9;
+  background-color: #e74c3c;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 10px;
-  position: absolute; /* Add this line */
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.content-item button:hover {
-  background-color: #ffffff;
-  color: #4aa1c9;
-}
-
-.post img.uploaded-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.post .post-content {
-  margin-bottom: 10px;
-}
-
-.post button {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.post button:hover {
+.delete-button:hover {
   background-color: #c0392b;
 }

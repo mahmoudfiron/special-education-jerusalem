@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© All rights to Mahmoud faroun, Samer nairoukh and wajde</p>
+        <p>© Mahmoud Faroun, Samer Neiroukh and Wajdi Farawna.</p>
       </div>
     </footer>
   );

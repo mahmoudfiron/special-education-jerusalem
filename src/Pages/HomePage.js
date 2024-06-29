@@ -6,6 +6,7 @@ import circle3 from '../assets/circledRed.jpg';
 import whoAreWe from '../assets/whoarewe.jpeg'
 import intro from '../assets/intro-image2.png'
 
+
 const images = [
   require('../assets/photo1.png'),
   require('../assets/photo2.png'),
@@ -14,7 +15,7 @@ const images = [
   require('../assets/photo5.png'),
   require('../assets/photo6.png'),
   require('../assets/photo7.png'),
-  require('../assets/my-background.webp')
+  // require('../assets/my-background.webp')
 ];
 
 const HomePage = ({ scrollToContact }) => {
@@ -37,6 +38,8 @@ const HomePage = ({ scrollToContact }) => {
       document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
     }
   }, [scrollToContact]);
+
+  
 
   return (
     <div className="home-page">
