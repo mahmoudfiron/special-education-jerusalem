@@ -46,8 +46,18 @@ const ContentList = ({ collectionName }) => {
             <span className="author-name">{post.authorName}</span>
             <span className="post-date">{new Date(post.timestamp.toMillis()).toLocaleDateString()}</span>
           </div>
-          <p>{post.text}</p>
-          {post.fileUrl && <img src={post.fileUrl} alt="Uploaded" className="uploaded-image" />}
+          <div className="post-content" dangerouslySetInnerHTML={{ __html: post.text }} />
+          {post.fileUrl && (
+            <div className="media-container">
+              {post.fileUrl.endsWith('.mp4') ? (
+                <video controls>
+                  <source src={post.fileUrl} type="video/mp4" />
+                </video>
+              ) : (
+                <img src={post.fileUrl} alt="Uploaded" className="uploaded-image" />
+              )}
+            </div>
+          )}
           {user && post.authorId === user.uid && (
             <button onClick={() => handleDelete(post.id)} className="delete-button">Delete</button>
           )}

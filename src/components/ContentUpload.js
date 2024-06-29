@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db, storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import styles
 import './ContentUpload.css';
 
 const ContentUpload = ({ collectionName }) => {
@@ -9,7 +11,7 @@ const ContentUpload = ({ collectionName }) => {
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [isGuide, setIsGuide] = useState(false);
-  const [showUpload, setShowUpload] = useState(false); // New state to control visibility
+  const [showUpload, setShowUpload] = useState(false);
 
   useEffect(() => {
     const fetchUserRole = async () => {
@@ -70,9 +72,9 @@ const ContentUpload = ({ collectionName }) => {
         <div className="content-upload">
           <h2>Upload</h2>
           <form onSubmit={handleSubmit}>
-            <textarea
+            <ReactQuill
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={setText}
               placeholder="What's on your mind?"
             />
             <input type="file" onChange={(e) => setFile(e.target.files[0])} />

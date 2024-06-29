@@ -25,7 +25,11 @@
 .content-upload input[type="file"] {
   margin-bottom: 10px;
 }
-
+.content-upload .ql-container {
+  height: 200px; /* Set a fixed height for the editor */
+  margin-bottom: 10px;
+  width: 100%;
+}
 .content-upload textarea {
   width: 100%;
   padding: 10px;
