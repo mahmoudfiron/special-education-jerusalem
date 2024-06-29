@@ -9,6 +9,7 @@ const ContentUpload = ({ collectionName }) => {
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [isGuide, setIsGuide] = useState(false);
+  const [showUpload, setShowUpload] = useState(false); // New state to control visibility
 
   useEffect(() => {
     const fetchUserRole = async () => {
@@ -62,20 +63,25 @@ const ContentUpload = ({ collectionName }) => {
 
   return (
     <div className="content-upload2">
-      <div className="content-upload">
-        <h2>Upload</h2>
-        <form onSubmit={handleSubmit}>
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="What's on your mind?"
-          />
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-          <button type="submit" disabled={uploading}>
-            {uploading ? 'Uploading...' : 'Post'}
-          </button>
-        </form>
-      </div>
+      <button onClick={() => setShowUpload(!showUpload)}>
+        {showUpload ? 'Hide Upload' : 'Upload'}
+      </button>
+      {showUpload && (
+        <div className="content-upload">
+          <h2>Upload</h2>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder="What's on your mind?"
+            />
+            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+            <button type="submit" disabled={uploading}>
+              {uploading ? 'Uploading...' : 'Post'}
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
