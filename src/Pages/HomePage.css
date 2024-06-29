@@ -1,17 +1,12 @@
 /* HomePage.css */
 .home-page {
-  text-align: center;
-  position: relative;
-  padding:0%;
-  background-image: url('../assets/background.avif');
+  background-image: url('../assets/my-background.webp');
+	background-size: contain; 
 }
-
 
 .content{
   top: 100%;
 }
-
-
 
 /* .header .logo {
   width: 100%;
@@ -47,7 +42,7 @@
 }
 
 .nav-bar button:hover {
-  background-color: #dd9d69;
+  background-color: #4aa1c9;
 }
 
 .dropdown {
@@ -83,13 +78,14 @@
 .background {
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
-  width: 100%;
-  height: 100vh;
+  border-radius: 30px;
+  width: 80%;
+  height: 80vh;
   position: relative;
   transition: opacity 1s ease-in-out;
   opacity: 1;
   z-index: 0;
+  right:-10%
 }
 
 .fade-in {
@@ -122,13 +118,18 @@
 
 .whoAreWe p {
   margin: 0;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 
 .whoAreWe-image {
-  max-width: 300px; /* Adjust the size of the image */
-  margin-left: 20px; /* Space between the text and image */
+  max-width: 400px; /* Adjust the size of the image */
+  margin-left: 30px; /* Space between the text and image */
   padding-left: 25px;
+}
+
+.whoarewe-para{
+font-size: larger;
+font-weight:545;
 }
 
 .image-buttons-section {
@@ -151,6 +152,7 @@
   cursor: pointer;
   padding: 0;
   border-radius: 50%;
+  padding: 4% 0%;
 }
 
 .image-button img {
@@ -168,4 +170,41 @@
   margin-top: 10px;
   font-size: 20px;
   color: #333;
+}
+
+.introduction{
+  height: 80%;
+  padding: 0% 0%;
+}
+
+.intro-image2 {
+  background-size: cover; /* Maintain aspect ratio */
+  height: 600px; /* Adjust the height as needed */
+  padding: 0% 0%; /* Remove padding if not necessary */
+}
+
+.intro-text{
+  position: absolute;
+  max-width: 600px;
+  line-height: 1.5;
+  text-align: right;
+  top: 48%;
+  right: 10%;
+  color: #4aa1c9;
+}
+
+.intro-par{
+  position: absolute;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 14px;
+  margin-top: 20px;
+  max-width: 800px; /* Increase max width for larger layout */
+  margin: 20px auto;
+  top: 55%;
+  right:8%;
+  font-size: larger;
+  font-weight: bolde;
+  color: #323232;
 }

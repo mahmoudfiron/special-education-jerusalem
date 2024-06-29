@@ -16,15 +16,16 @@
 
 .nav-bar button {
   padding: 10px 20px;
-  background-color: rgba(255, 57, 57, 0.8);
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: large;
+  font-weight: bold; /* Make font bold */
 }
 
 .nav-bar button:hover {
-  background-color: #dff6ff;
+  background-color: #b0e9ff;
   color: #00aeff;
 }
 
@@ -98,16 +99,18 @@
   font-size: 14px; /* Smaller font size for the label */
   align-self: center; /* Align the label in the center vertically */
   left: 1%;
+  font-size: large;
+  font-weight: bold; /* Make font bold */
 }
 
 
 
 
 .sign-in-icon {
-  padding: 10px;
+  padding: 15px;
   position: absolute;
   right: 6%;
-  background-color: rgba(218, 200, 118, 0.8);
+  background-color: #4aa1c9;
   border-radius: 50%;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -119,14 +122,14 @@
 
 
 .sign-in-icon:hover {
-  background-color: #dd9d69;
+  background-color: #bfebff;
 }
 
 
 .home-icon{
   position: absolute;
-  padding: 10px;
-  background-color: rgba(218, 200, 118, 0.8);
+  padding: 15px;
+  background-color: #4aa1c9;
   border-radius: 50%;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -138,5 +141,5 @@
 }
 
 .home-icon:hover {
-  background-color: #dd9d69;
+  background-color: #bfebff;
 }

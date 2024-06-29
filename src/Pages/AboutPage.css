@@ -6,6 +6,18 @@
     
   }
   
+  .contact-page{
+    background-image: url('../assets/my-background.webp');
+    background-size: contain; 
+
+  }
+
+  .contact-section{
+    background-image: url('../assets/my-background.webp');
+    background-size: contain; 
+
+  }
+
   .content {
     margin-top: 20px;
   }

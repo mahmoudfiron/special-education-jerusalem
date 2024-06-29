@@ -38,7 +38,7 @@
 
 .content-item button {
   padding: 10px 20px;
-  background-color: #dd9d69;
+  background-color: #4aa1c9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -52,7 +52,7 @@
 
 .content-item button:hover {
   background-color: #ffffff;
-  color: #dd9d69;
+  color: #4aa1c9;
 }
 
 .post img.uploaded-image {

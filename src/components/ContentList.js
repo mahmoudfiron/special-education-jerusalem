@@ -6,7 +6,7 @@ import '../Pages/MathHomePage.css';
 
 const ContentList = ({ collectionName }) => {
   const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState(null);
+  const [user] = useState(null);
   useEffect(() => {
     const q = query(collection(db, collectionName));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {

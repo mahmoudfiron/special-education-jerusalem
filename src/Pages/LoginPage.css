@@ -2,7 +2,7 @@
   text-align: center;
   position: relative;
   padding:50px;
-  background-image: url('../assets/background.avif');
+  background-image: url('../assets/my-background.webp');
 
 }
 
@@ -38,7 +38,7 @@
 
 button {
   padding: 10px 20px;
-  background-color: #dd9d69;
+  background-color: #4aa1c9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -49,7 +49,7 @@ button {
 
 button:hover {
   background-color: #ffffff;
-  color: #dd9d69;
+  color: #4aa1c9;
 }
 
 .back-button {
@@ -63,7 +63,7 @@ button:hover {
 
 .toggle-button {
   background-color: transparent;
-  color: #dd9d69;
+  color: #4aa1c9;
   border: none;
   cursor: pointer;
   margin-top: 20px;

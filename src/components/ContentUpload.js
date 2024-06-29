@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getDoc, doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { auth, db, storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './ContentUpload.css';
@@ -41,6 +41,7 @@ const ContentUpload = ({ collectionName }) => {
   };
 
   return (
+    <div className="content-upload2">
     <div className="content-upload">
       <h2>Upload</h2>
       <form onSubmit={handleSubmit}>
@@ -54,6 +55,7 @@ const ContentUpload = ({ collectionName }) => {
           {uploading ? 'Uploading...' : 'Post'}
         </button>
       </form>
+    </div>
     </div>
   );
 };

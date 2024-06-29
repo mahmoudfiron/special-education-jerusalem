@@ -1,5 +1,13 @@
+
+.content-upload2 {
+  background-image: url('../assets/my-background.webp');
+	background-size: contain; 
+}
+
+
+
 .content-upload {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-image: url('../assets/my-background.webp');
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -32,7 +40,7 @@
 
 .content-upload button {
   padding: 10px 20px;
-  background-color: #dd9d69;
+  background-color: #4aa1c9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -42,5 +50,5 @@
 
 .content-upload button:hover {
   background-color: #ffffff;
-  color: #dd9d69;
+  color: #4aa1c9;
 }

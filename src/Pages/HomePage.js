@@ -4,6 +4,7 @@ import circle1 from '../assets/circledBlue.jpg';
 import circle2 from '../assets/circledYellow.jpg';
 import circle3 from '../assets/circledRed.jpg';
 import whoAreWe from '../assets/whoarewe.jpeg'
+import intro from '../assets/intro-image2.png'
 
 const images = [
   require('../assets/photo1.png'),
@@ -13,7 +14,7 @@ const images = [
   require('../assets/photo5.png'),
   require('../assets/photo6.png'),
   require('../assets/photo7.png'),
-  require('../assets/background.avif')
+  require('../assets/my-background.webp')
 ];
 
 const HomePage = ({ scrollToContact }) => {
@@ -39,16 +40,31 @@ const HomePage = ({ scrollToContact }) => {
 
   return (
     <div className="home-page">
-      <div className={`background ${fade ? 'fade-in' : 'fade-out'}`}
-        style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
-      >
-        {/* Background image div */}
+      
+
+
+      <div className="introduction">
+
+          <img src={intro} alt="intro " className="intro-image2" />
+
+          <h1 className="intro-text">אנחנו כאן בשביל לעזור לכם בלימודים</h1>
+          <p className="intro-par">
+            מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי צוות המדריכים
+          </p>
       </div>
+
+
+
       <div className="whoAreWe">
+
         <div className="whoAreWe-content">
           <h1>מי אנחנו</h1>
-          <p>
-            מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי צוות המדריכים
+          <p className='whoarewe-para'>
+
+          העמותה היא בשביל לשיפור הזדמנויות חינוכיות עבור אנשים עם צרכים מיוחדים בירושלים.
+           מחויבים להכלה ונגישות, הם שואפים להעצים את התלמידים עם תוכניות חינוכיות מותאמות ושירותי תמיכה הנותנים מענה לדרישות הלמידה הייחודיות שלהם. באמצעות מאמצים משותפים עם מחנכים, משפחות ושותפים בקהילה, העמותה מטפחת סביבה מטפחת בה כל תלמיד יכול לשגשג אקדמית וחברתית. המשימה שלהם חורגת מעבר לחינוך, דוגלת בשוויון
+            הזדמנויות ושילוב חברתי עבור אנשים עם מוגבלות, ובכך לקדם קהילה מכילה ותומכת יותר בירושלים.
+
           </p>
         </div>
         <img src={whoAreWe} alt="Who Are We" className="whoAreWe-image" />
@@ -68,6 +84,13 @@ const HomePage = ({ scrollToContact }) => {
             <h1 className="button-label">למידה בשעת חירום</h1>
           </div>
         </div>
+
+        <div className={`background ${fade ? 'fade-in' : 'fade-out'}`}
+        style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+      >
+        {/* Background image div */}
+      </div>
+
       </div>
     </div>
   );

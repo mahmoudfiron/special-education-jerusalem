@@ -6,8 +6,11 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  padding: 20px;
-  background-image: url('../assets/background.avif');
+  position: relative;
+  padding:50px;
+  background-image: url('../assets/my-background.webp');
+  background-size: cover; 
+
 }
 
 .rating-container {
@@ -49,7 +52,7 @@
 
 button {
   padding: 10px 20px;
-  background-color: #dd9d69;
+  background-color: #4aa1c9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -59,7 +62,7 @@ button {
 
 button:hover {
   background-color: #ffffff;
-  color: #dd9d69;
+  color: #4aa1c9;
 }
 
 .feedback-container {
