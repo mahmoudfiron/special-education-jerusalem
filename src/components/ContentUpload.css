@@ -1,13 +1,8 @@
-
-
-
-
-
 .content-upload {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 500px;
+  max-width: 600px;
   margin: 20px auto;
   text-align: center;
 }
@@ -22,20 +17,22 @@
   align-items: center;
 }
 
+.content-upload input[type="text"],
 .content-upload input[type="file"] {
-  margin-bottom: 10px;
-}
-.content-upload .ql-container {
-  height: 200px; /* Set a fixed height for the editor */
-  margin-bottom: 10px;
-  width: 100%;
-}
-.content-upload textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.section {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.section .ql-container {
+  margin-bottom: 10px;
 }
 
 .content-upload button {
@@ -53,24 +50,17 @@
   color: #4aa1c9;
 }
 
-
-.content-upload2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.content-upload2 button {
-  padding: 10px 20px;
-  background-color: #4aa1c9;
+.remove-section-button {
+  padding: 5px 10px;
+  background-color: #e74c3c;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 10px;
-  transition: background-color 0.3s;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
-.content-upload2 button:hover {
-  background-color: #ffffff;
-  color: #4aa1c9;
+.remove-section-button:hover {
+  background-color: #c0392b;
 }

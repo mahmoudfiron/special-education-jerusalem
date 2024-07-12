@@ -7,7 +7,6 @@ import '../Pages/MathHomePage.css';
 const ContentList = ({ collectionName }) => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
-  const [expandedPostIds, setExpandedPostIds] = useState([]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -39,34 +38,6 @@ const ContentList = ({ collectionName }) => {
     await deleteDoc(doc(db, collectionName, id));
   };
 
-  const toggleExpandPost = (postId) => {
-    setExpandedPostIds((prevExpandedPostIds) =>
-      prevExpandedPostIds.includes(postId)
-        ? prevExpandedPostIds.filter((id) => id !== postId)
-        : [...prevExpandedPostIds, postId]
-    );
-  };
-
-  const renderText = (text, postId) => {
-    const wordLimit = 200;
-    const words = text.split(' ');
-    const isLongText = words.length > wordLimit;
-    const displayText = isLongText && !expandedPostIds.includes(postId)
-      ? words.slice(0, wordLimit).join(' ') + '...'
-      : text;
-
-    return (
-      <div>
-        <div className="post-content" dangerouslySetInnerHTML={{ __html: displayText }} />
-        {isLongText && (
-          <span onClick={() => toggleExpandPost(postId)} className="read-more-label">
-            {expandedPostIds.includes(postId) ? 'Read Less' : 'Read More'}
-          </span>
-        )}
-      </div>
-    );
-  };
-
   return (
     <div className="content-list">
       {posts.map((post) => (
@@ -75,18 +46,24 @@ const ContentList = ({ collectionName }) => {
             <span className="author-name">{post.authorName}</span>
             <span className="post-date">{new Date(post.timestamp.toMillis()).toLocaleDateString()}</span>
           </div>
-          {renderText(post.text, post.id)}
-          {post.fileUrl && (
-            <div className="media-container" dir="rtl">
-              {post.fileUrl.endsWith('.mp4') ? (
-                <video controls>
-                  <source src={post.fileUrl} type="video/mp4" />
-                </video>
-              ) : (
-                <img src={post.fileUrl} alt="Uploaded" className="uploaded-image" />
+          <h2>{post.mainTitle}</h2>
+          {post.sections.map((section, index) => (
+            <div key={index} className="section" dir="rtl">
+              {section.secondaryTitle && <h3>{section.secondaryTitle}</h3>}
+              {section.fileUrl && (
+                <div className="media-container" dir="rtl">
+                  {section.fileUrl.endsWith('.mp4') ? (
+                    <video controls>
+                      <source src={section.fileUrl} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={section.fileUrl} alt="Uploaded" className="uploaded-image" />
+                  )}
+                </div>
               )}
+              <div className="post-content" dangerouslySetInnerHTML={{ __html: section.text }} />
             </div>
-          )}
+          ))}
           {user && post.authorId === user.uid && (
             <button onClick={() => handleDelete(post.id)} className="delete-button">Delete</button>
           )}

@@ -2,49 +2,47 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 50%;
-  min-height: 500px;
 }
 
 .content-item {
   background-color: rgba(245, 245, 245, 0.9);
-  padding: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  margin: 10px 0;
-  text-align: right;
-  position: relative;
+  max-width: 800px;
+  width: 100%;
+  direction: rtl; /* Ensure all content is displayed from right to left */
+  text-align: right; /* Align text to the right */
 }
 
 .post-header {
-  display: grid;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
-  font-size: 20px;
-  color: #555;
 }
 
-.post-author {
+.author-name {
   font-weight: bold;
 }
 
 .post-date {
-  font-size: 15px;
-  color: #888;
+  color: #999;
 }
 
-.post-content p {
+.section h3, .section p {
   margin: 10px 0;
+}
+
+.media-container {
+  margin: 20px 0;
 }
 
 .uploaded-image {
   max-width: 100%;
   height: auto;
-  max-height: 400px; /* set a max height */
-  object-fit: cover;
-  border-radius: 5px;
-  margin-top: 10px;
 }
 
 .delete-button {
@@ -54,25 +52,20 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
   margin-top: 10px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
 }
 
 .delete-button:hover {
   background-color: #c0392b;
-  
 }
+
 .read-more-label {
   color: #4aa1c9;
   cursor: pointer;
-  text-decoration: underline;
-  margin-top: 10px;
   display: inline-block;
+  margin-top: 10px;
 }
 
 .read-more-label:hover {
-  color: #2c7a8a;
+  text-decoration: underline;
 }

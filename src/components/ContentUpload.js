@@ -7,8 +7,8 @@ import 'react-quill/dist/quill.snow.css'; // import styles
 import './ContentUpload.css';
 
 const ContentUpload = ({ collectionName }) => {
-  const [text, setText] = useState('');
-  const [file, setFile] = useState(null);
+  const [mainTitle, setMainTitle] = useState('');
+  const [sections, setSections] = useState([{ secondaryTitle: '', text: '', file: null }]);
   const [uploading, setUploading] = useState(false);
   const [isGuide, setIsGuide] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
@@ -38,25 +38,43 @@ const ContentUpload = ({ collectionName }) => {
 
     setUploading(true);
     const postRef = doc(db, collectionName, new Date().getTime().toString());
-    let fileUrl = '';
 
-    if (file) {
-      const storageRef = ref(storage, `uploads/${file.name}`);
-      await uploadBytes(storageRef, file);
-      fileUrl = await getDownloadURL(storageRef);
-    }
+    const sectionsWithUrls = await Promise.all(sections.map(async (section) => {
+      let fileUrl = '';
+      if (section.file) {
+        const storageRef = ref(storage, `uploads/${section.file.name}`);
+        await uploadBytes(storageRef, section.file);
+        fileUrl = await getDownloadURL(storageRef);
+      }
+      const { file, ...sectionWithoutFile } = section; // Remove the file field
+      return { ...sectionWithoutFile, fileUrl };
+    }));
 
     const postData = {
-      text,
-      fileUrl,
+      mainTitle,
+      sections: sectionsWithUrls,
       authorId: user.uid,
       timestamp: new Date(),
     };
 
     await setDoc(postRef, postData);
-    setText('');
-    setFile(null);
+    setMainTitle('');
+    setSections([{ secondaryTitle: '', text: '', file: null }]);
     setUploading(false);
+  };
+
+  const handleAddSection = () => {
+    setSections([...sections, { secondaryTitle: '', text: '', file: null }]);
+  };
+
+  const handleRemoveSection = (index) => {
+    setSections(sections.filter((_, i) => i !== index));
+  };
+
+  const handleSectionChange = (index, field, value) => {
+    const newSections = sections.slice();
+    newSections[index][field] = value;
+    setSections(newSections);
   };
 
   if (!isGuide) {
@@ -72,12 +90,38 @@ const ContentUpload = ({ collectionName }) => {
         <div className="content-upload">
           <h2>Upload</h2>
           <form onSubmit={handleSubmit}>
-            <ReactQuill
-              value={text}
-              onChange={setText}
-              placeholder="What's on your mind?"
+            <input
+              type="text"
+              value={mainTitle}
+              onChange={(e) => setMainTitle(e.target.value)}
+              placeholder="Main Title"
+              required
             />
-            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+            {sections.map((section, index) => (
+              <div key={index} className="section">
+                <input
+                  type="text"
+                  value={section.secondaryTitle}
+                  onChange={(e) => handleSectionChange(index, 'secondaryTitle', e.target.value)}
+                  placeholder="Secondary Title"
+                />
+                <ReactQuill
+                  value={section.text}
+                  onChange={(value) => handleSectionChange(index, 'text', value)}
+                  placeholder="Text"
+                />
+                <input
+                  type="file"
+                  onChange={(e) => handleSectionChange(index, 'file', e.target.files[0])}
+                />
+                <button type="button" className="remove-section-button" onClick={() => handleRemoveSection(index)}>
+                  Remove Section
+                </button>
+              </div>
+            ))}
+            <button type="button" onClick={handleAddSection}>
+              Add Section
+            </button>
             <button type="submit" disabled={uploading}>
               {uploading ? 'Uploading...' : 'Post'}
             </button>

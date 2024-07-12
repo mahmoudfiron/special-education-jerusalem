@@ -197,6 +197,8 @@ const NavBar = () => {
     navigate('/');
   };
 
+  const showSearchBar = location.pathname === '/' || location.pathname === '/search';
+
   return (
     <div className="nav-bar-container">
       <nav className="nav-bar">
@@ -213,7 +215,7 @@ const NavBar = () => {
             <button onClick={() => handleMenuItemClick('/login')}>Sign In</button>
           )}
         </div>
-        {location.pathname === '/' && (
+        {showSearchBar && (
           <form className="search-form" onSubmit={handleSearch}>
             <input
               type="text"
