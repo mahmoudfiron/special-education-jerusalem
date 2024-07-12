@@ -73,8 +73,8 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className={`overlay ${message ? 'active' : ''}`} />
+      <h2>{isSignUp ? 'Sign Up' : 'Login'}</h2>
       <div className="login-container">
-        <h2>{isSignUp ? 'Sign Up' : 'Login'}</h2>
         {message && (
           <div className={`message ${messageType}`}>
             <p>{message}</p>

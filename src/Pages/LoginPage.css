@@ -3,11 +3,10 @@
   position: relative;
   padding:50px;
   background-image: url('../assets/my-background.webp');
-
 }
 
 .login-container {
-  background-color: rgba(240, 240, 240, 0.9);
+  background-color: rgba(255, 251, 251, 0.9);
   padding: 20px;
   border-radius: 10px;
   margin: 20px auto;

@@ -2,6 +2,10 @@
   padding: 20px;
   max-width: 800px;
   margin: 20px auto;
+
+  font-family: 'Open Sans Hebrew';
+  font-weight: normal;
+  font-style: normal;
 }
 
 .search-result-item {
@@ -11,6 +15,10 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  font-family: 'Open Sans Hebrew';
+  font-weight: normal;
+  font-style: normal;
 }
 
 .search-result-item img {
@@ -26,6 +34,10 @@
   text-decoration: underline;
   display: inline-block;
   margin-top: 10px;
+
+  font-family: 'Open Sans Hebrew';
+  font-weight: normal;
+  font-style: normal;
 }
 
 .read-more-label:hover,

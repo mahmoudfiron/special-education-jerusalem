@@ -27,7 +27,7 @@
   }
   
   .contact-section label {
-    width: 100px;
+    width: 40px;
     margin-left: 10px; /* Add space between label and input */
     text-align: left; /* Align text inside the label to the right */
     direction: rtl; /* Ensure the text inside the label is right-to-left */
@@ -64,4 +64,26 @@
     align-items: center;
     margin-bottom: 15px;
     flex-direction: row-reverse;
+    
   }
+
+  .form-group-text1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-direction: row-reverse;
+    top: 80%;
+    direction: rtl; /* Ensure the text inside the label is right-to-left */
+    right: 30%;
+  }
+
+.form-group-label1{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-direction: row-reverse;
+  width: 100px;
+  margin-left: 10px; /* Add space between label and input */
+  text-align: left; /* Align text inside the label to the right */
+  direction: rtl; /* Ensure the text inside the label is right-to-left */
+}

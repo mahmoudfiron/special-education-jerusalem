@@ -10,8 +10,8 @@ const ContactPage = () => {
       <div className="contact-section">
         <form>
           <div className="form-group">
-            <label htmlFor="name">שם:</label>
-            <input type="text" id="name" name="name" required />
+            <label className="form-group-text" htmlFor="name">שם:</label>
+            <input className="form-group-label" type="text" id="name" name="name" required />
           </div>
           <div className="form-group">
             <label htmlFor="email">אימייל:</label>

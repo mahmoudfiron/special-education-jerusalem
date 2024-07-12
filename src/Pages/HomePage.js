@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import circle1 from '../assets/circledBlue.jpg';
-import circle2 from '../assets/circledYellow.jpg';
-import circle3 from '../assets/circledRed.jpg';
 import whoAreWe from '../assets/whoarewe.jpeg'
 import intro from '../assets/intro-image2.png'
 
@@ -79,33 +76,19 @@ const HomePage = ({ scrollToContact }) => {
           המשימה שלנו היא הפדגוגיה ןבהשפעותיה  על שוויון הזדמנויות ושילוב חברתי עבור אנשים עם מוגבלות, ובכך לקדם קהילה מכילה ותומכת יותר בירושלים ובסביבה.
           
           </p>
+          
         </div>
         <img src={whoAreWe} alt="Who Are We" className="whoAreWe-image" />
-      </div>
-      <div className="image-buttons-section">
-        <div className="image-buttons">
-          <div className="image-button" onClick={() => window.location.href='/parentsection'}>
-            <img src={circle1} alt="Blue Circle" />
-            <h1 className="button-label">תכנים להורים</h1>
-          </div>
-          <div className="image-button" onClick={() => window.location.href='/wartime'}>
-            <img src={circle2} alt="Yellow Circle" />
-            <h1 className="button-label">מעני הדרכה נוספים בזמן המלחמה</h1>
-          </div>
-          <div className="image-button" onClick={() => window.location.href='/emergencylearning'}>
-            <img src={circle3} alt="Red Circle" />
-            <h1 className="button-label">למידה בשעת חירום</h1>
-          </div>
+        </div>
+      
+        <div className={`background ${fade ? 'fade-in' : 'fade-out'}`}
+        style={{ backgroundImage: `url(${images[currentImageIndex]})` }}  >
+        {/* Background image div */}
         </div>
 
-        <div className={`background ${fade ? 'fade-in' : 'fade-out'}`}
-        style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
-      >
-        {/* Background image div */}
-      </div>
+
 
       </div>
-    </div>
   );
 };
 

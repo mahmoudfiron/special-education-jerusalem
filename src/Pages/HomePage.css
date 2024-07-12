@@ -74,18 +74,17 @@
   background-color: #555;
 }
 
-
 .background {
   background-size: cover;
   background-position: center;
   border-radius: 30px;
   width: 80%;
-  height: 80vh;
+  height: 85vh;
   position: relative;
   transition: opacity 1s ease-in-out;
   opacity: 1;
   z-index: 0;
-  right:-10%
+  right:-10%;
 }
 
 .fade-in {
@@ -104,6 +103,10 @@
   margin-top: 20px;
   max-width: 800px; /* Increase max width for larger layout */
   margin: 20px auto;
+
+  font-family: 'Open Sans Hebrew';
+  font-weight: normal;
+  font-style: normal;
 }
 
 .whoAreWe-content {
@@ -130,41 +133,11 @@
 .whoarewe-para{
 font-size: larger;
 font-weight:545;
+
+font-family: 'Open Sans Hebrew';
+font-style: normal;
 }
 
-.image-buttons-section {
-  margin-top: 40px;
-  padding-bottom: 40px;
-}
-
-.image-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.image-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  border-radius: 50%;
-  padding: 4% 0%;
-}
-
-.image-button img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.image-button img:hover {
-  transform: scale(1.1);
-}
 
 .button-label {
   margin-top: 10px;
@@ -173,13 +146,12 @@ font-weight:545;
 }
 
 .introduction{
-  height: 80%;
   padding: 0% 0%;
 }
 
 .intro-image2 {
   background-size: cover; /* Maintain aspect ratio */
-  height: 600px; /* Adjust the height as needed */
+  height: 300px; /* Adjust the height as needed */
   padding: 0% 0%; /* Remove padding if not necessary */
 }
 
@@ -194,6 +166,10 @@ font-weight:545;
   text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
   font-size: 50px;
 
+
+  font-family: 'Open Sans Hebrew';
+  font-weight: normal;
+  font-style: normal;
 }
 
 .intro-par{
@@ -208,10 +184,13 @@ font-weight:545;
   top: 55%;
   right:9%;
   font-size: 30px;
-  font-weight: bolde;
   text-align: right;
   color: #323232;
   text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
+
+  font-family: 'Open Sans Hebrew';
+  font-weight: normal;
+  font-style: normal;
 }
 
 .button-label{
