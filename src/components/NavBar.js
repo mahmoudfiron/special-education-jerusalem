@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import './NavBar.css';
@@ -12,9 +12,7 @@ const NavBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState({});
   const dropdownRefs = useRef({});
   const [currentTopic, setCurrentTopic] = useState('');
-
-
-
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleDropdownToggle = (menu) => {
     setDropdownOpen((prevState) => ({
@@ -22,10 +20,6 @@ const NavBar = () => {
       [menu]: !prevState[menu],
     }));
   };
-
-
-
-
 
   const handleMenuItemClick = (path, topic = '') => {
     setDropdownOpen({});
@@ -75,6 +69,13 @@ const NavBar = () => {
       setCurrentTopic('');
     }
   }, [location.pathname]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${searchTerm}`);
+    }
+  };
 
   const mainButtons = (
     <>
@@ -181,14 +182,13 @@ const NavBar = () => {
     }
   };
 
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
     });
-  
+
     return () => unsubscribe();
   }, []);
 
@@ -197,27 +197,35 @@ const NavBar = () => {
     navigate('/');
   };
 
-
-
   return (
     <div className="nav-bar-container">
       <nav className="nav-bar">
-        <div className="icon-label" onClick={() => navigate('/feedback')}>
-          <FontAwesomeIcon icon={faStar} />
-        </div>
         <div className="nav-buttons">
           {renderButtons()}
         </div>
         <div className="home-icon" onClick={() => handleMenuItemClick('/')}>
           <FontAwesomeIcon icon={faHome} />
         </div>
-        <div className="text-label" onClick={() => navigate('/feedback')}>
-          דרגו אותנו
-        </div>
         <div className="auth-button">
-          {user ? (<button onClick={handleLogout}>Logout</button>) : 
-          (<button onClick={() => handleMenuItemClick('/login')}>Sign In</button>)}
-      </div>
+          {user ? (
+            <button onClick={handleLogout}>Logout</button>
+          ) : (
+            <button onClick={() => handleMenuItemClick('/login')}>Sign In</button>
+          )}
+        </div>
+        {location.pathname === '/' && (
+          <form className="search-form" onSubmit={handleSearch}>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search..."
+            />
+            <button type="submit">
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </form>
+        )}
       </nav>
     </div>
   );

@@ -24,6 +24,8 @@ import EmergencyLearning from './Pages/EmergencyLearning';
 import RatingPage from './Pages/RatingPage';
 import ContentUpload from './components/ContentUpload';
 import ContentList from './components/ContentList';
+import SearchResults from './components/SearchResults'; // Import the search results component
+
 
 const App = () => {
   return (
@@ -54,6 +56,7 @@ const App = () => {
             <Route path="/feedback" element={<RatingPage />} />
             <Route path="/upload-content" element={<ContentUpload />} />
             <Route path="/content-list" element={<ContentList />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </Layout>
       </div>

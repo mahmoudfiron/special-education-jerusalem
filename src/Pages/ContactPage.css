@@ -7,7 +7,7 @@
   }
   
   .contact-section {
-    background-color: rgba(240, 240, 240, 0.9);
+    background-color: #ffffffe6;
     padding: 20px;
     border-radius: 10px;
     margin: 20px auto;
@@ -57,3 +57,11 @@
     color: #c0ebff;
   }
   
+
+
+  .form-group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-direction: row-reverse;
+  }

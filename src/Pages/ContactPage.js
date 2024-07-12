@@ -6,8 +6,8 @@ require('../assets/background.avif')
 const ContactPage = () => {
   return (
     <div className="contact-page">
+      <h1>צור קשר</h1>
       <div className="contact-section">
-        <h2>צור קשר</h2>
         <form>
           <div className="form-group">
             <label htmlFor="name">שם:</label>

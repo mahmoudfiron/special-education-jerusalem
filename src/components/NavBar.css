@@ -28,6 +28,12 @@
 }
 
 
+.nav-bar button.active {
+  background-color: #b0e9ff;
+  color: rgb(72, 156, 172);
+}
+
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -82,7 +88,7 @@
   border-radius: 5px;
   font-size: 14px; /* Smaller font size for the label */
   align-self: center; /* Align the label in the center vertically */
-  left: 1%;
+  left: 50%;
   font-size: large;
   font-weight: bold; /* Make font bold */
 }
@@ -129,5 +135,38 @@
 
 .auth-button button:hover {
   background-color: #b0e9ff;
+  color: rgb(72,156,172);
+}
+
+.search-bar {
+  position: absolute;
+  left: 20%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  position: absolute;
+  left: 1%;
+  top: 23.5%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.search-form button {
+  position: absolute;
+  left: 13%;
+  /* padding: 5px 10px; */
+  /* border: none; */
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  height: 5%;
+}
+
+.search-form button:hover {
+  background-color: #21004a;
   color: rgb(72,156,172);
 }

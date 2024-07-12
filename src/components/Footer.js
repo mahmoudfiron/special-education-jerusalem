@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="footer-section links">
           <h3>קישורים</h3>
           <ul>
-            <li><a href="/privacy-policy">מדיניות פרטיות</a></li>
+            <li><a href="/feedback"> דרגו אותנו</a></li>
             <li><a href="/terms-of-service">תנאי שירות</a></li>
             <li><a href="/about">אודות</a></li>
             <li><a href="/contact">צור קשר</a></li>
