@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot, deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import './ContentList.css';
-import '../Pages/MathHomePage.css';
+import '../Pages/MathSection/MathHomePage.css';
 
 const ContentList = ({ collectionName }) => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
+  const [expandedPostIds, setExpandedPostIds] = useState([]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -38,6 +39,34 @@ const ContentList = ({ collectionName }) => {
     await deleteDoc(doc(db, collectionName, id));
   };
 
+  const toggleExpandPost = (postId) => {
+    setExpandedPostIds((prevExpandedPostIds) =>
+      prevExpandedPostIds.includes(postId)
+        ? prevExpandedPostIds.filter((id) => id !== postId)
+        : [...prevExpandedPostIds, postId]
+    );
+  };
+
+  const renderText = (text, postId) => {
+    const wordLimit = 50;
+    const words = text.split(' ');
+    const isLongText = words.length > wordLimit;
+    const displayText = isLongText && !expandedPostIds.includes(postId)
+      ? words.slice(0, wordLimit).join(' ') + '...'
+      : text;
+
+    return (
+      <div>
+        <div className="post-content" dangerouslySetInnerHTML={{ __html: displayText }} />
+        {isLongText && (
+          <span onClick={() => toggleExpandPost(postId)} className="read-more-label">
+            {expandedPostIds.includes(postId) ? 'קרא פחות' : 'קרא עוד'}
+          </span>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="content-list">
       {posts.map((post) => (
@@ -61,7 +90,7 @@ const ContentList = ({ collectionName }) => {
                   )}
                 </div>
               )}
-              <div className="post-content" dangerouslySetInnerHTML={{ __html: section.text }} />
+              {renderText(section.text, post.id)}
             </div>
           ))}
           {user && post.authorId === user.uid && (

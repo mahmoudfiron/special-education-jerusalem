@@ -1,30 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
-import AboutPage from './Pages/AboutPage';
-import TutorialsPage from './Pages/TutorialsPage';
 import ContactPage from './Pages/ContactPage';
 import LoginPage from './Pages/LoginPage';
 import LinguisticEducationPage from './Pages/LinguisticEducationPage';
-import MathHomePage from './Pages/MathHomePage';
-import MathCurriculum from './Pages/MathCurriculum';
-import MathMappingAssessment from './Pages/MathMappingAssessment';
-import MathActivities from './Pages/MathActivities';
-import MathFunctionalMath from './Pages/MathFunctionalMath';
-import MathTeachingStrategies from './Pages/MathTeachingStrategies';
+import MathHomePage from './Pages/MathSection/MathHomePage';
+import MathCurriculum from './Pages/MathSection/MathCurriculum';
+import MathMappingAssessment from './Pages/MathSection/MathMappingAssessment';
+import MathActivities from './Pages/MathSection/MathActivities';
+import MathFunctionalMath from './Pages/MathSection/MathFunctionalMath';
+import MathTeachingStrategies from './Pages/MathSection/MathTeachingStrategies';
 import SciencePage from './Pages/SciencePage';
 import EnglishPage from './Pages/EnglishPage';
 import ArtPage from './Pages/ArtPage';
 import CitizenshipPage from './Pages/CitizenshipPage';
 import BiblePage from './Pages/BiblePage';
 import Layout from './components/Layout';
-import ParentSection from './Pages/ParentSection';
-import WarTime from './Pages/WarTime';
-import EmergencyLearning from './Pages/EmergencyLearning';
 import RatingPage from './Pages/RatingPage';
 import ContentUpload from './components/ContentUpload';
 import ContentList from './components/ContentList';
-import SearchResults from './components/SearchResults'; // Import the search results component
+import SearchResults from './components/SearchResults';
+
 
 
 const App = () => {
@@ -34,8 +30,6 @@ const App = () => {
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/tutorials" element={<TutorialsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/linguistic-education" element={<LinguisticEducationPage />} />
@@ -50,9 +44,6 @@ const App = () => {
             <Route path="/art" element={<ArtPage />} />
             <Route path="/citizenship" element={<CitizenshipPage />} />
             <Route path="/bible" element={<BiblePage />} />
-            <Route path="/parentsection" element={<ParentSection />} />
-            <Route path="/wartime" element={<WarTime />} />
-            <Route path="/emergencylearning" element={<EmergencyLearning />} />
             <Route path="/feedback" element={<RatingPage />} />
             <Route path="/upload-content" element={<ContentUpload />} />
             <Route path="/content-list" element={<ContentList />} />

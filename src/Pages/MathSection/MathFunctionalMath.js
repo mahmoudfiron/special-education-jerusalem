@@ -1,6 +1,6 @@
 import React from 'react';
-import ContentUpload from '../components/ContentUpload';
-import ContentList from '../components/ContentList';
+import ContentUpload from '../../components/ContentUpload';
+import ContentList from '../../components/ContentList';
 
 const MathFunctionalMath = () => {
   return (
