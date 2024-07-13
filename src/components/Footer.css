@@ -11,7 +11,10 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
-  font-size: large
+  font-size:large;
+
+  font-family: 'Open Sans Hebrew';
+  font-style: inherit;
 }
 
 .footer-section {
@@ -51,5 +54,17 @@
   text-align: center;
   padding-top: 10px;
   border-top: 1px solid #555;
-  font-size: large
+  font-size: large;
+}
+
+.line {
+  width: 90px; /* Adjust the width as needed */
+  height: 1.8px;
+  background-color: #9b0000;
+  margin: 10px auto;
+}
+
+.yo_icon{
+  color: crimson;
+  padding: 10px;
 }
