@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="footer-section social">
           <h3>  Follow Us </h3>
           <div className="line"></div>
-          <a href="https://www.facebook.com/groups/809498406553638" target="_blank" rel="noopener noreferrer">
+          <a className="fa_icon" href="https://www.facebook.com/groups/809498406553638" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
             </a>
             <a className="yo_icon" href="https://www.youtube.com/channel/UCDx-HPB2f5VEKWrnz6ZY8Bg" color="#cf0000" target="_blank" rel="noopener noreferrer">
