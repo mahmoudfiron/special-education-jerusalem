@@ -12,6 +12,7 @@ const NavBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState({});
   const dropdownRefs = useRef({});
   const [currentTopic, setCurrentTopic] = useState('');
+  const [activeButton, setActiveButton] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleDropdownToggle = (menu) => {
@@ -21,21 +22,10 @@ const NavBar = () => {
     }));
   };
 
-  const handleMenuItemClick = (path, topic = '') => {
+  const handleMenuItemClick = (path, topic = '', buttonName = '') => {
     setDropdownOpen({});
-    if (currentTopic !== topic) {
-      setCurrentTopic(topic);
-      if (topic === 'math') {
-        navigate('/math-home');
-        return;
-      } else if (topic === 'linguistic-education') {
-        navigate('/linguistic-education-home');
-        return;
-      } else if (topic === 'english') {
-        navigate('/english-home');
-        return;
-      }
-    }
+    setCurrentTopic(topic);
+    setActiveButton(buttonName);
     navigate(path);
   };
 
@@ -63,12 +53,15 @@ const NavBar = () => {
       setCurrentTopic('linguistic-education');
     } else if (path.startsWith('/math')) {
       setCurrentTopic('math');
+      if (path === '/math') {
+        navigate('/math-home');
+      }
     } else if (path.startsWith('/english')) {
       setCurrentTopic('english');
     } else {
       setCurrentTopic('');
     }
-  }, [location.pathname]);
+  }, [location.pathname, navigate]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -80,53 +73,53 @@ const NavBar = () => {
   const mainButtons = (
     <>
       <div className="dropdown" ref={(el) => (dropdownRefs.current['pedagogical-coordination'] = el)}>
-        <button onClick={() => handleDropdownToggle('pedagogical-coordination')}>ריכוז פדגוגי</button>
+        <button className={currentTopic === 'pedagogical-coordination' ? 'active' : ''} onClick={() => handleDropdownToggle('pedagogical-coordination')}>ריכוז פדגוגי</button>
       </div>
       <div className="dropdown" ref={(el) => (dropdownRefs.current['populations'] = el)}>
-        <button onClick={() => handleDropdownToggle('populations')}>אוכלוסיות</button>
+        <button className={currentTopic === 'populations' ? 'active' : ''} onClick={() => handleDropdownToggle('populations')}>אוכלוסיות</button>
         {isDropdownOpen['populations'] && (
           <div className="dropdown-menu">
-            <button onClick={() => handleMenuItemClick('/early-childhood')}>גיל הרך</button>
-            <button onClick={() => handleMenuItemClick('/challenging-behavior')}>התנהגות מאתגרת</button>
-            <button onClick={() => handleMenuItemClick('/ana')}>אנ"ה</button>
-            <button onClick={() => handleMenuItemClick('/teacher-as-beacon')}>המורה כמגדלור</button>
-            <button onClick={() => handleMenuItemClick('/cvi')}>CVI</button>
+            <button className={activeButton === 'early-childhood' ? 'active' : ''} onClick={() => handleMenuItemClick('/early-childhood', '', 'early-childhood')}>גיל הרך</button>
+            <button className={activeButton === 'challenging-behavior' ? 'active' : ''} onClick={() => handleMenuItemClick('/challenging-behavior', '', 'challenging-behavior')}>התנהגות מאתגרת</button>
+            <button className={activeButton === 'ana' ? 'active' : ''} onClick={() => handleMenuItemClick('/ana', '', 'ana')}>אנ"ה</button>
+            <button className={activeButton === 'teacher-as-beacon' ? 'active' : ''} onClick={() => handleMenuItemClick('/teacher-as-beacon', '', 'teacher-as-beacon')}>המורה כמגדלור</button>
+            <button className={activeButton === 'cvi' ? 'active' : ''} onClick={() => handleMenuItemClick('/cvi', '', 'cvi')}>CVI</button>
           </div>
         )}
       </div>
       <div className="dropdown" ref={(el) => (dropdownRefs.current['technopedagogy'] = el)}>
-        <button onClick={() => handleDropdownToggle('technopedagogy')}>טכנופדגוגיה</button>
+        <button className={currentTopic === 'technopedagogy' ? 'active' : ''} onClick={() => handleDropdownToggle('technopedagogy')}>טכנופדגוגיה</button>
       </div>
       <div className="dropdown" ref={(el) => (dropdownRefs.current['youth-society'] = el)}>
-        <button onClick={() => handleDropdownToggle('youth-society')}>חברה ונוער</button>
+        <button className={currentTopic === 'youth-society' ? 'active' : ''} onClick={() => handleDropdownToggle('youth-society')}>חברה ונוער</button>
         {isDropdownOpen['youth-society'] && (
           <div className="dropdown-menu">
-            <button onClick={() => handleMenuItemClick('/social-educational-community')}>חינוך חברת ערכי קהילתי</button>
-            <button onClick={() => handleMenuItemClick('/shl')}>של"ח</button>
+            <button className={activeButton === 'social-educational-community' ? 'active' : ''} onClick={() => handleMenuItemClick('/social-educational-community', '', 'social-educational-community')}>חינוך חברת ערכי קהילתי</button>
+            <button className={activeButton === 'shl' ? 'active' : ''} onClick={() => handleMenuItemClick('/shl', '', 'shl')}>של"ח</button>
           </div>
         )}
       </div>
       <div className="dropdown" ref={(el) => (dropdownRefs.current['life-preparation'] = el)}>
-        <button onClick={() => handleDropdownToggle('life-preparation')}>הכנה לחיים</button>
+        <button className={currentTopic === 'life-preparation' ? 'active' : ''} onClick={() => handleDropdownToggle('life-preparation')}>הכנה לחיים</button>
         {isDropdownOpen['life-preparation'] && (
           <div className="dropdown-menu">
-            <button onClick={() => handleMenuItemClick('/transitions')}>מעברים</button>
-            <button onClick={() => handleMenuItemClick('/life-preparation-21')}>הכנה לחיים - לב 21</button>
-            <button onClick={() => handleMenuItemClick('/social-sexual-education')}>חינוך מיני חברתי</button>
+            <button className={activeButton === 'transitions' ? 'active' : ''} onClick={() => handleMenuItemClick('/transitions', '', 'transitions')}>מעברים</button>
+            <button className={activeButton === 'life-preparation-21' ? 'active' : ''} onClick={() => handleMenuItemClick('/life-preparation-21', '', 'life-preparation-21')}>הכנה לחיים - לב 21</button>
+            <button className={activeButton === 'social-sexual-education' ? 'active' : ''} onClick={() => handleMenuItemClick('/social-sexual-education', '', 'social-sexual-education')}>חינוך מיני חברתי</button>
           </div>
         )}
       </div>
       <div className="dropdown" ref={(el) => (dropdownRefs.current['discipline-areas'] = el)}>
-        <button onClick={() => handleDropdownToggle('discipline-areas')}>תחומי דעת</button>
+        <button className={currentTopic === 'discipline-areas' ? 'active' : ''} onClick={() => handleDropdownToggle('discipline-areas')}>תחומי דעת</button>
         {isDropdownOpen['discipline-areas'] && (
           <div className="dropdown-menu">
-            <button onClick={() => handleMenuItemClick('/linguistic-education', 'linguistic-education')}>חינוך לשוני</button>
-            <button onClick={() => handleMenuItemClick('/math', 'math')}>מתמטיקה</button>
-            <button onClick={() => handleMenuItemClick('/science')}>מדע וטכנולוגיה</button>
-            <button onClick={() => handleMenuItemClick('/english', 'english')}>אנגלית</button>
-            <button onClick={() => handleMenuItemClick('/art')}>אמנות</button>
-            <button onClick={() => handleMenuItemClick('/citizenship')}>אזרחות</button>
-            <button onClick={() => handleMenuItemClick('/bible')}>תנ"ך</button>
+            <button className={activeButton === 'linguistic-education' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education', 'linguistic-education', 'linguistic-education')}>חינוך לשוני</button>
+            <button className={activeButton === 'math-home' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-home', 'math', 'math-home')}>מתמטיקה</button>
+            <button className={activeButton === 'science' ? 'active' : ''} onClick={() => handleMenuItemClick('/science', '', 'science')}>מדע וטכנולוגיה</button>
+            <button className={activeButton === 'english' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-home', 'english', 'english-home')}>אנגלית</button>
+            <button className={activeButton === 'art' ? 'active' : ''} onClick={() => handleMenuItemClick('/art', '', 'art')}>אמנות</button>
+            <button className={activeButton === 'citizenship' ? 'active' : ''} onClick={() => handleMenuItemClick('/citizenship', '', 'citizenship')}>אזרחות</button>
+            <button className={activeButton === 'bible' ? 'active' : ''} onClick={() => handleMenuItemClick('/bible', '', 'bible')}>תנ"ך</button>
           </div>
         )}
       </div>
@@ -135,37 +128,37 @@ const NavBar = () => {
 
   const linguisticEducationButtons = (
     <>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-arabic', 'linguistic-education')}>חינוך לשוני בערבית</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-assessment', 'linguistic-education')}>הערכה</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-meta-linguistic-knowledge', 'linguistic-education')}>ידע מטא לשוני</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-listening-speaking', 'linguistic-education')}>האזנה ודיבור</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-writing', 'linguistic-education')}>כתיבה</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-reading', 'linguistic-education')}>קריאה</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-curriculum', 'linguistic-education')}>תכניות לימודים</button>
-      <button onClick={() => handleMenuItemClick('/linguistic-education-home', 'linguistic-education')}>דף ראשי חינוך לשוני</button>
+      <button className={activeButton === 'linguistic-education-arabic' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-arabic', 'linguistic-education', 'linguistic-education-arabic')}>חינוך לשוני בערבית</button>
+      <button className={activeButton === 'linguistic-education-assessment' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-assessment', 'linguistic-education', 'linguistic-education-assessment')}>הערכה</button>
+      <button className={activeButton === 'linguistic-education-meta-linguistic-knowledge' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-meta-linguistic-knowledge', 'linguistic-education', 'linguistic-education-meta-linguistic-knowledge')}>ידע מטא לשוני</button>
+      <button className={activeButton === 'linguistic-education-listening-speaking' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-listening-speaking', 'linguistic-education', 'linguistic-education-listening-speaking')}>האזנה ודיבור</button>
+      <button className={activeButton === 'linguistic-education-writing' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-writing', 'linguistic-education', 'linguistic-education-writing')}>כתיבה</button>
+      <button className={activeButton === 'linguistic-education-reading' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-reading', 'linguistic-education', 'linguistic-education-reading')}>קריאה</button>
+      <button className={activeButton === 'linguistic-education-curriculum' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-curriculum', 'linguistic-education', 'linguistic-education-curriculum')}>תכניות לימודים</button>
+      <button className={activeButton === 'linguistic-education-home' ? 'active' : ''} onClick={() => handleMenuItemClick('/linguistic-education-home', 'linguistic-education', 'linguistic-education-home')}>דף ראשי חינוך לשוני</button>
     </>
   );
 
   const mathButtons = (
     <>
-      <button onClick={() => handleMenuItemClick('/math-teaching-strategies', 'math')}>אסטרטגיות להוראה מותאמת</button>
-      <button onClick={() => handleMenuItemClick('/math-functional', 'math')}>חשבון פונקציונאלי</button>
-      <button onClick={() => handleMenuItemClick('/math-activities', 'math')}>פעילויות במתמטיקה</button>
-      <button onClick={() => handleMenuItemClick('/math-mapping-assessment', 'math')}>מיפוי והערכה</button>
-      <button onClick={() => handleMenuItemClick('/math-curriculum', 'math')}>מתווים ותוכניות לימודים</button>
-      <button onClick={() => handleMenuItemClick('/math-home', 'math')}>דף ראשי מתמטיקה</button>
+      <button className={activeButton === 'math-teaching-strategies' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-teaching-strategies', 'math', 'math-teaching-strategies')}>אסטרטגיות להוראה מותאמת</button>
+      <button className={activeButton === 'math-functional' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-functional', 'math', 'math-functional')}>חשבון פונקציונאלי</button>
+      <button className={activeButton === 'math-activities' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-activities', 'math', 'math-activities')}>פעילויות במתמטיקה</button>
+      <button className={activeButton === 'math-mapping-assessment' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-mapping-assessment', 'math', 'math-mapping-assessment')}>מיפוי והערכה</button>
+      <button className={activeButton === 'math-curriculum' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-curriculum', 'math', 'math-curriculum')}>מתווים ותוכניות לימודים</button>
+      <button className={activeButton === 'math-home' ? 'active' : ''} onClick={() => handleMenuItemClick('/math-home', 'math', 'math-home')}>דף ראשי מתמטיקה</button>
     </>
   );
 
   const englishButtons = (
     <>
-      <button onClick={() => handleMenuItemClick('/english-exams', 'english')}>בגרויות</button>
-      <button onClick={() => handleMenuItemClick('/english-assessments', 'english')}>מבדקים</button>
-      <button onClick={() => handleMenuItemClick('/english-technology-tools', 'english')}>כלים טכנולוגיים</button>
-      <button onClick={() => handleMenuItemClick('/english-teaching-tools', 'english')}>כלים להוראה מיטבית</button>
-      <button onClick={() => handleMenuItemClick('/english-teaching-materials', 'english')}>חומרי הוראה</button>
-      <button onClick={() => handleMenuItemClick('/english-curriculum', 'english')}>תכנית הלימודים</button>
-      <button onClick={() => handleMenuItemClick('/english-home', 'english')}>דף ראשי אנגלית</button>
+      <button className={activeButton === 'english-exams' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-exams', 'english', 'english-exams')}>בגרויות</button>
+      <button className={activeButton === 'english-assessments' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-assessments', 'english', 'english-assessments')}>מבדקים</button>
+      <button className={activeButton === 'english-technology-tools' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-technology-tools', 'english', 'english-technology-tools')}>כלים טכנולוגיים</button>
+      <button className={activeButton === 'english-teaching-tools' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-teaching-tools', 'english', 'english-teaching-tools')}>כלים להוראה מיטבית</button>
+      <button className={activeButton === 'english-teaching-materials' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-teaching-materials', 'english', 'english-teaching-materials')}>חומרי הוראה</button>
+      <button className={activeButton === 'english-curriculum' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-curriculum', 'english', 'english-curriculum')}>תכנית הלימודים</button>
+      <button className={activeButton === 'english-home' ? 'active' : ''} onClick={() => handleMenuItemClick('/english-home', 'english', 'english-home')}>דף ראשי אנגלית</button>
     </>
   );
 

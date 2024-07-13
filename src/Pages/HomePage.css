@@ -85,6 +85,7 @@
   opacity: 1;
   z-index: 0;
   right:-10%;
+  margin: 15px;
 }
 
 .fade-in {
@@ -127,7 +128,7 @@
 .whoAreWe-image {
   max-width: 400px; /* Adjust the size of the image */
   margin-left: 30px; /* Space between the text and image */
-  padding-left: 25px;
+  padding-left: 50px;
 }
 
 .whoarewe-para{

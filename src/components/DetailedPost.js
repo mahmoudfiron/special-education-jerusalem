@@ -5,16 +5,18 @@ import { db } from '../firebase';
 import './DetailedPost.css';
 
 const DetailedPost = () => {
-  const { id } = useParams();
+  const { id, collectionName } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const docRef = doc(db, 'posts', id); // Make sure 'posts' is the correct collection name
+        console.log('Fetching post with ID:', id, 'from collection:', collectionName);
+        const docRef = doc(db, collectionName, id); // Use collectionName from URL
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
+          console.log('Post data:', docSnap.data());
           setPost(docSnap.data());
         } else {
           console.error('No such document!');
@@ -26,7 +28,7 @@ const DetailedPost = () => {
       }
     };
     fetchPost();
-  }, [id]);
+  }, [id, collectionName]);
 
   if (loading) {
     return <div>Loading...</div>;

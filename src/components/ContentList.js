@@ -48,7 +48,7 @@ const ContentList = ({ collectionName }) => {
   };
 
   const renderText = (text, postId) => {
-    const wordLimit = 50;
+    const wordLimit = 100;
     const words = text.split(' ');
     const isLongText = words.length > wordLimit;
     const displayText = isLongText && !expandedPostIds.includes(postId)

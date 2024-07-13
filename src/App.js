@@ -22,7 +22,6 @@ import ContentList from './components/ContentList';
 import SearchResults from './components/SearchResults';
 
 
-
 const App = () => {
   return (
     <Router>

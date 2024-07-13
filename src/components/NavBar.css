@@ -1,7 +1,6 @@
 .nav-bar-container {
   border-radius: 0px;
   margin-bottom: 0px;
-  
 }
 
 .nav-bar {
@@ -9,7 +8,6 @@
   justify-content: center;
   margin-bottom: 10px;
   padding: 13px 19px;
-
 }
 
 .nav-bar button {
@@ -20,22 +18,19 @@
   cursor: pointer;
   font-size: large;
   font-weight: bold; /* Make font bold */
-
   font-family: 'Open Sans Hebrew';
   font-style: normal;
 }
 
 .nav-bar button:hover {
   background-color: #b0e9ff;
-  color: rgb(72,156,172);
+  color: rgb(72, 156, 172);
 }
-
 
 .nav-bar button.active {
   background-color: #b0e9ff;
   color: rgb(72, 156, 172);
 }
-
 
 .dropdown {
   position: relative;
@@ -69,8 +64,6 @@
   color: black;
 }
 
-
-
 .icon-label {
   position: absolute;
   padding: 10px 15px;
@@ -78,7 +71,7 @@
   border-radius: 5px;
   cursor: pointer;
   align-self: center; /* Align the label in the center vertically */
-  left:6%;
+  left: 6%;
 }
 
 .icon-label:hover {
@@ -96,12 +89,9 @@
   font-weight: bold; /* Make font bold */
 }
 
-
- 
-.home-icon{
+.home-icon {
   position: absolute;
   padding: 15px;
-  /* background-color: rgb(72,156,172); */
   border-radius: 50%;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -113,8 +103,7 @@
 }
 
 .home-icon:hover {
-  /* background-color: #bfebff; */
-  color: rgb(72,156,172);
+  color: rgb(72, 156, 172);
 }
 
 .auth-button {
@@ -128,7 +117,7 @@
 
 .auth-button button {
   padding: 5px 10px;
-  background-color: rgb(72,156,172);
+  background-color: rgb(72, 156, 172);
   color: white;
   border: none;
   border-radius: 15px;
@@ -138,7 +127,7 @@
 
 .auth-button button:hover {
   background-color: #b0e9ff;
-  color: rgb(72,156,172);
+  color: rgb(72, 156, 172);
 }
 
 .search-bar {
@@ -152,7 +141,7 @@
 .search-form input {
   position: absolute;
   left: 1%;
-  top: 25%;
+  top: 23%;
   padding: 5px;
   border: none;
   border-radius: 5px 0 0 5px;
@@ -160,15 +149,14 @@
 
 .search-form button {
   position: absolute;
-  left: 14.7%;
-  /* padding: 5px 10px; */
-  /* border: none; */
+  left: 13%;
   cursor: pointer;
   height: 5%;
   width: 2%;
+  
 }
 
 .search-form button:hover {
   background-color: #21004a;
-  color: rgb(72,156,172);
+  color: rgb(72, 156, 172);
 }

@@ -61,6 +61,7 @@ const ContentUpload = ({ collectionName }) => {
     setMainTitle('');
     setSections([{ secondaryTitle: '', text: '', file: null }]);
     setUploading(false);
+    setShowUpload(false); // Close the upload section
   };
 
   const handleAddSection = () => {
