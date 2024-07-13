@@ -1,0 +1,34 @@
+.detailed-post {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    direction: rtl; /* Ensure all content is displayed from right to left */
+    text-align: right; /* Align text to the right */
+    font-family: 'Open Sans Hebrew';
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .media-container {
+    margin: 20px 0;
+  }
+  
+  .uploaded-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h2, h3, p {
+    font-family: 'Open Sans Hebrew';
+    font-weight: normal;
+    font-style: normal;
+  }
+  
