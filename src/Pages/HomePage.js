@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import whoAreWe from '../assets/whoarewe.jpeg'
-import intro from '../assets/intro-image2.png'
 
 
 const images = [
@@ -44,11 +43,6 @@ const HomePage = ({ scrollToContact }) => {
 
 
       <div className="introduction">
-
-          <img src={intro} alt="intro " className="intro-image2" />
-
-
-
 
           <h1 className="intro-text">אנחנו כאן בשביל לעזור לכם בלימודים</h1>
           <p className="intro-par">

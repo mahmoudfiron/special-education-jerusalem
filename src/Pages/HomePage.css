@@ -1,8 +1,3 @@
-/* HomePage.css */
-.home-page {
-  background-image: url('../assets/backgroundA.jpg');
-	background-size: contain; 
-}
 
 .content{
   top: 100%;
@@ -157,7 +152,6 @@ font-style: normal;
 }
 
 .intro-text{
-  position: absolute;
   max-width: 1000px;
   line-height: 1.5;
   text-align: right;
@@ -174,7 +168,6 @@ font-style: normal;
 }
 
 .intro-par{
-  position: absolute;
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
