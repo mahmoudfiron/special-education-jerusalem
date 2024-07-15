@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { collection, query, onSnapshot, deleteDoc, doc, getDoc } from 'firebase/firestore';
+import { collection, query, onSnapshot, deleteDoc, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import EditPostModal from './EditPostModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import './ContentList.css';
 import '../Pages/MathSection/MathHomePage.css';
 
@@ -10,10 +12,20 @@ const ContentList = ({ collectionName }) => {
   const [user, setUser] = useState(null);
   const [expandedPostIds, setExpandedPostIds] = useState([]);
   const [editPostId, setEditPostId] = useState(null);
+  const [userRole, setUserRole] = useState('');
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        if (userDoc.exists()) {
+          setUserRole(userDoc.data().role);
+        }
+      } else {
+        setUser(null);
+        setUserRole('');
+      }
     });
 
     return () => unsubscribe();
@@ -47,6 +59,50 @@ const ContentList = ({ collectionName }) => {
         ? prevExpandedPostIds.filter((id) => id !== postId)
         : [...prevExpandedPostIds, postId]
     );
+  };
+
+  const handleLike = async (postId) => {
+    if (!user) {
+      alert('Please sign in to like the post.');
+      return;
+    }
+
+    const postRef = doc(db, collectionName, postId);
+    const postDoc = await getDoc(postRef);
+    const postData = postDoc.data();
+
+    if (postData.likes && postData.likes.includes(user.uid)) {
+      await updateDoc(postRef, {
+        likes: arrayRemove(user.uid)
+      });
+    } else {
+      await updateDoc(postRef, {
+        likes: arrayUnion(user.uid),
+        dislikes: arrayRemove(user.uid)
+      });
+    }
+  };
+
+  const handleDislike = async (postId) => {
+    if (!user) {
+      alert('Please sign in to dislike the post.');
+      return;
+    }
+
+    const postRef = doc(db, collectionName, postId);
+    const postDoc = await getDoc(postRef);
+    const postData = postDoc.data();
+
+    if (postData.dislikes && postData.dislikes.includes(user.uid)) {
+      await updateDoc(postRef, {
+        dislikes: arrayRemove(user.uid)
+      });
+    } else {
+      await updateDoc(postRef, {
+        dislikes: arrayUnion(user.uid),
+        likes: arrayRemove(user.uid)
+      });
+    }
   };
 
   const renderText = (text, postId) => {
@@ -95,6 +151,34 @@ const ContentList = ({ collectionName }) => {
               {renderText(section.text, post.id)}
             </div>
           ))}
+          <div className="post-actions">
+            {user ? (
+              <>
+                <button
+                  className={`like-button ${post.likes && post.likes.includes(user.uid) ? 'active' : ''}`}
+                  onClick={() => handleLike(post.id)}
+                >
+                  <FontAwesomeIcon icon={faThumbsUp} /> {post.likes ? post.likes.length : 0}
+                </button>
+                <button
+                  className={`dislike-button ${post.dislikes && post.dislikes.includes(user.uid) ? 'active' : ''}`}
+                  onClick={() => handleDislike(post.id)}
+                >
+                  <FontAwesomeIcon icon={faThumbsDown} />
+                  {userRole === 'guide' && post.dislikes ? ` ${post.dislikes.length}` : ''}
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="like-button disabled" onClick={() => alert('Please sign in to like the post.')}>
+                  <FontAwesomeIcon icon={faThumbsUp} /> {post.likes ? post.likes.length : 0}
+                </button>
+                <button className="dislike-button disabled" onClick={() => alert('Please sign in to dislike the post.')}>
+                  <FontAwesomeIcon icon={faThumbsDown} />
+                </button>
+              </>
+            )}
+          </div>
           {user && post.authorId === user.uid && (
             <div>
               <button onClick={() => handleDelete(post.id)} className="delete-button">Delete</button>

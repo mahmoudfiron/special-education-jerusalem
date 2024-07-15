@@ -16,12 +16,10 @@
   width: 100%;
   direction: rtl; /* Ensure all content is displayed from right to left */
   text-align: right; /* Align text to the right */
-
   font-family: 'Open Sans Hebrew';
   font-weight: normal;
   font-style: normal;
   font-size: larger;
-  
 }
 
 .post-header {
@@ -29,13 +27,10 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-
   font-family: 'Open Sans Hebrew';
   font-weight: normal;
   font-style: normal;
-  
   font-size: larger;
-
 }
 
 .author-name {
@@ -48,17 +43,14 @@
 
 .section h3, .section p {
   margin: 10px 0;
-
   font-family: 'Open Sans Hebrew';
   font-weight: normal;
   font-style: normal;
   font-size: larger;
-
 }
 
 .media-container {
   margin: 20px 0;
-
   text-align: center;
   font-size: larger;
 }
@@ -83,6 +75,21 @@
   background-color: #c0392b;
 }
 
+.edit-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.edit-button:hover {
+  background-color: #2a88b9;
+}
+
 .read-more-label {
   color: #4aa1c9;
   cursor: pointer;
@@ -92,4 +99,28 @@
 
 .read-more-label:hover {
   text-decoration: underline;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.like-button, .dislike-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.like-button.active, .dislike-button.active {
+  color: #4aa1c9;
+}
+
+.like-button.disabled, .dislike-button.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
