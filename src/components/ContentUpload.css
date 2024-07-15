@@ -53,7 +53,7 @@
 .remove-section-button {
   padding: 5px 10px;
   background-color: #e74c3c;
-  color: white;
+  color: #e74c3c;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -64,3 +64,4 @@
 .remove-section-button:hover {
   background-color: #c0392b;
 }
+

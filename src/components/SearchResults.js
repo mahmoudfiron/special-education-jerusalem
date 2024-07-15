@@ -17,7 +17,7 @@ const SearchResultsPage = () => {
   useEffect(() => {
     if (!searchQuery) return;
 
-    const collections = ['math-home-posts', 'english-posts', 'linguistic-education-posts']; // Add all your collection names here
+    const collections = ['math-home-posts','math-curriculum', 'english-posts', 'linguistic-education-posts']; // Add all your collection names here
 
     const fetchPosts = async () => {
       const allPosts = [];

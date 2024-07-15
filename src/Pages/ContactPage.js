@@ -1,14 +1,28 @@
 import React from 'react';
+import emailjs from 'emailjs-com';
 import './ContactPage.css';
 
-require('../assets/background.avif')
-
 const ContactPage = () => {
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_2sfk59c', 'template_wn7jy0e', e.target, '6-OJUc5nQaHSBu_Wa')
+      .then((result) => {
+          console.log(result.text);
+          alert('Message sent successfully!');
+      }, (error) => {
+          console.log(error.text);
+          alert('Failed to send the message, please try again.');
+      });
+
+    e.target.reset();
+  };
+
   return (
     <div className="contact-page">
       <h1>צור קשר</h1>
       <div className="contact-section">
-        <form>
+        <form onSubmit={sendEmail}>
           <div className="form-group">
             <label className="form-group-text" htmlFor="name">שם:</label>
             <input className="form-group-label" type="text" id="name" name="name" required />

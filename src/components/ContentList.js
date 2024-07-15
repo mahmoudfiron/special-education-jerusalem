@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot, deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
+import EditPostModal from './EditPostModal';
 import './ContentList.css';
 import '../Pages/MathSection/MathHomePage.css';
 
@@ -8,6 +9,7 @@ const ContentList = ({ collectionName }) => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
   const [expandedPostIds, setExpandedPostIds] = useState([]);
+  const [editPostId, setEditPostId] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -94,10 +96,20 @@ const ContentList = ({ collectionName }) => {
             </div>
           ))}
           {user && post.authorId === user.uid && (
-            <button onClick={() => handleDelete(post.id)} className="delete-button">Delete</button>
+            <div>
+              <button onClick={() => handleDelete(post.id)} className="delete-button">Delete</button>
+              <button onClick={() => setEditPostId(post.id)} className="edit-button">Edit</button>
+            </div>
           )}
         </div>
       ))}
+      {editPostId && (
+        <EditPostModal
+          postId={editPostId}
+          collectionName={collectionName}
+          onClose={() => setEditPostId(null)}
+        />
+      )}
     </div>
   );
 };

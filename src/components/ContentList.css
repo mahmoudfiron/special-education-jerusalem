@@ -20,7 +20,7 @@
   font-family: 'Open Sans Hebrew';
   font-weight: normal;
   font-style: normal;
-  
+  font-size: larger;
   
 }
 
@@ -34,6 +34,8 @@
   font-weight: normal;
   font-style: normal;
   
+  font-size: larger;
+
 }
 
 .author-name {
@@ -50,12 +52,15 @@
   font-family: 'Open Sans Hebrew';
   font-weight: normal;
   font-style: normal;
+  font-size: larger;
+
 }
 
 .media-container {
   margin: 20px 0;
 
-text-align: center;
+  text-align: center;
+  font-size: larger;
 }
 
 .uploaded-image {

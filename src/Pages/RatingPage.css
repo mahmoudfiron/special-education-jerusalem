@@ -3,14 +3,12 @@
   background: linear-gradient(to top, #555353, #fcfcfc);
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
   position: relative;
-  padding:50px;
+  padding: 50px;
   background-image: url('../assets/my-background.webp');
-  background-size: cover; 
-
+  background-size: cover;
 }
 
 .rating-container {
@@ -19,9 +17,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-  width: 100%;
+  width: 40%;
   text-align: center;
-  margin-right: 20px;
 }
 
 .stars {
@@ -66,14 +63,14 @@ button:hover {
 }
 
 .feedback-container {
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
-  width: 100%;
+  width: 50%;
   text-align: left;
   overflow-y: auto; /* Allow scrolling for feedback container */
   height: auto; /* Adjust height to fit content */
-  right: 0%;
 }
 
 .feedback-item {
@@ -86,4 +83,101 @@ button:hover {
 
 .feedback-rating {
   display: flex;
+}
+
+.feedback-user {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.star-percentages {
+  margin-top: 20px;
+}
+
+.star-percentage {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.star-percentage .star {
+  margin-right: 10px;
+}
+
+.percentage-bar {
+  background-color: #ddd;
+  height: 20px;
+  flex: 1;
+  margin-right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.filled-bar {
+  background-color: #f39c12;
+  height: 100%;
+}
+
+.percentage-text {
+  margin-left: 10px;
+}
+
+.star-count {
+  margin-left: 5px;
+  font-size: 1rem;
+  color: #666;
+  padding-right: 7px;
+}
+
+.sorting-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sorting-buttons button {
+  padding: 10px 20px;
+  background-color: #21004a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sorting-buttons button:hover {
+  background-color: #3a007a;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+.edit-button {
+  background-color: #21004a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.edit-button:hover {
+  background-color: #3a007a;
 }

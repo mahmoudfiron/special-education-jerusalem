@@ -47,6 +47,9 @@ const HomePage = ({ scrollToContact }) => {
 
           <img src={intro} alt="intro " className="intro-image2" />
 
+
+
+
           <h1 className="intro-text">אנחנו כאן בשביל לעזור לכם בלימודים</h1>
           <p className="intro-par">
             מערך ההדרכה של החינוך המיוחד במחוזות ירושלים והעיר ירושלים כולל כ 50 מדריכים בתחומי דעת וסוגי אוכלוסיות מגוונים בהתאם לצרכי השדה. החומרים באתר זה נאספים ומאורגנים על ידי צוות המדריכים
