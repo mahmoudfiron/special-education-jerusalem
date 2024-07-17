@@ -66,6 +66,21 @@ const SearchResultsPage = () => {
       case 'math-home-posts':
         path = '/math-home';
         break;
+      case 'math-curriculum':
+        path = '/math-curriculum';
+        break;  
+      case 'math-mapping-assessment':
+        path = '/math-mapping-assessment';
+        break;  
+      case 'math-activities':
+        path = '/math-activities';
+        break;    
+      case 'math-functional':
+        path = '/math-functional';
+        break;   
+      case 'math-teaching-strategies':
+        path = '/math-teaching-strategies';
+        break;  
       case 'english-posts':
         path = '/english-home';
         break;
@@ -78,6 +93,33 @@ const SearchResultsPage = () => {
     navigate(path);
     setTargetPostId(postId);
     setScrollToPost(true);
+  };
+
+  const getPostPath = (collectionName) => {
+    switch (collectionName) {
+      case 'math-home-posts':
+        return 'דף ראשי מתמטיקה';
+      case 'math-curriculum':
+        return 'מתווים ותוכניות לימודים';
+      case 'math-mapping-assessment':
+        return 'מיפוי והערכה';
+      case 'math-activities':
+        return 'פעילויות במתמטיקה';  
+      case 'math-functional':
+        return 'חשבון פונקציונאלי'; 
+      case 'math-teaching-strategies':
+        return 'אסטרטגיות להוראה מותאמת'; 
+
+
+
+
+      case 'english-posts':
+        return 'English Home';
+      case 'linguistic-education-posts':
+        return 'Linguistic Education Home';
+      default:
+        return 'Home';
+    }
   };
 
   const toggleExpandPost = (postId) => {
@@ -101,7 +143,7 @@ const SearchResultsPage = () => {
         <div className="post-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(displayText) }} />
         {isLongText && (
           <span onClick={() => toggleExpandPost(postId)} className="read-more-label">
-            {expandedPostIds.includes(postId) ? 'Read Less' : 'Read More'}
+            {expandedPostIds.includes(postId) ? 'קרא פחות' : 'קרא עוד'}
           </span>
         )}
       </div>
@@ -114,6 +156,9 @@ const SearchResultsPage = () => {
       {posts.length > 0 ? (
         posts.map((post) => (
           <div key={post.id} className="search-result-item" id={post.id} dir="rtl">
+            <span className="post-path" onClick={() => handleNavigateToPost(post.collectionName, post.id)}>
+              {getPostPath(post.collectionName)}
+            </span>
             <h2>{post.mainTitle}</h2>
             {post.sections.map((section, index) => (
               <div key={index} className="post-section">
@@ -136,9 +181,6 @@ const SearchResultsPage = () => {
               <span className="author-name">{post.authorName}</span>
               <span className="post-date">{new Date(post.timestamp.toMillis()).toLocaleDateString()}</span>
             </div>
-            <span className="navigate-label" onClick={() => handleNavigateToPost(post.collectionName, post.id)}>
-              מעבר לדף
-            </span>
           </div>
         ))
       ) : (

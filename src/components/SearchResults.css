@@ -15,6 +15,7 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: right;
 
   font-family: 'Open Sans Hebrew';
   font-weight: normal;
@@ -42,5 +43,19 @@
 
 .read-more-label:hover,
 .navigate-label:hover {
+  color: #0056b3;
+}
+
+
+.post-path {
+  position: absolute;
+  right: 23.5%;
+  font-size: 0.9em;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.post-path:hover {
   color: #0056b3;
 }

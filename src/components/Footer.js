@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section contact">
-          <h3 className="tsour_kesher"> CONTACT </h3>
+          <h3 className="tsour_kesher"> צור קשר </h3>
           <div className="line"></div>
           <p>כתובת:  מרכז פסגה מנח"י. רחוב מרדכי נרקיס 11. ירושלים.92461
           </p>
@@ -18,7 +18,7 @@ const Footer = () => {
 
         </div>
         <div className="footer-section links">
-          <h3> USEFUL LINKS </h3>
+          <h3> קישורים שימושיים </h3>
           <div className="line"></div>
           <ul>
             <li><a href="/feedback"> דרגו אותנו</a></li>
@@ -26,7 +26,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section social">
-          <h3>  Follow Us </h3>
+          <h3>  עקבו אחרינו </h3>
           <div className="line"></div>
           <a className="fa_icon" href="https://www.facebook.com/groups/809498406553638" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebook} size="2x" />

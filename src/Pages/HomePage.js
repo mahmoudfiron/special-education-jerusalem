@@ -42,7 +42,7 @@ const HomePage = ({ scrollToContact }) => {
       
 
 
-      <div className="introduction">
+      <div className="introduction" >
 
           <h1 className="intro-text">אנחנו כאן בשביל לעזור לכם בלימודים</h1>
           <p className="intro-par">
