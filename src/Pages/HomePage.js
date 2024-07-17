@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './HomePage.css';
-import whoAreWe from '../assets/whoarewe.jpeg';
+import whoAreWe from '../assets/photo8.jpg';
 
 const images = [
   require('../assets/photo1.png'),

@@ -181,8 +181,8 @@ const ContentList = ({ collectionName }) => {
           </div>
           {user && post.authorId === user.uid && (
             <div>
-              <button onClick={() => handleDelete(post.id)} className="delete-button">Delete</button>
-              <button onClick={() => setEditPostId(post.id)} className="edit-button">Edit</button>
+              <button onClick={() => handleDelete(post.id)} className="delete-button">מחק</button>
+              <button onClick={() => setEditPostId(post.id)} className="edit-button">הערכה</button>
             </div>
           )}
         </div>
