@@ -152,7 +152,6 @@ const SearchResultsPage = () => {
 
   return (
     <div className="search-results-page">
-      <h1>Search Results</h1>
       {posts.length > 0 ? (
         posts.map((post) => (
           <div key={post.id} className="search-result-item" id={post.id} dir="rtl">

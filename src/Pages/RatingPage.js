@@ -161,7 +161,7 @@ const RatingPage = () => {
         )}
       </div>
       <div className="rating-container">
-        <h2>דרגו אותנו</h2>
+        <h2>דעתכם חשובה לנו, דרגו את השירות שלנו</h2>
         <form onSubmit={handleFormSubmit} className="rating-form">
           <div className="stars">
             {[1, 2, 3, 4, 5].map((star) => (
