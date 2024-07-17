@@ -78,6 +78,7 @@ const EditPostModal = ({ postId, collectionName, onClose }) => {
             onChange={(e) => setMainTitle(e.target.value)}
             placeholder="Main Title"
             required
+            dir="rtl"
           />
           {sections.map((section, index) => (
             <div key={index} className="section">
@@ -86,11 +87,13 @@ const EditPostModal = ({ postId, collectionName, onClose }) => {
                 value={section.secondaryTitle}
                 onChange={(e) => handleSectionChange(index, 'secondaryTitle', e.target.value)}
                 placeholder="Secondary Title"
+                dir="rtl"
               />
               <ReactQuill
                 value={section.text}
                 onChange={(value) => handleSectionChange(index, 'text', value)}
                 placeholder="Text"
+                dir="rtl"
               />
               {section.fileUrl && (
                 <div className="media-container">

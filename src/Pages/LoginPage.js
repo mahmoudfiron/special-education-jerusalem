@@ -17,6 +17,13 @@ const LoginPage = () => {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
+  const [firstNameError, setFirstNameError] = useState('');
+  const [lastNameError, setLastNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const validateName = (name) => /^[a-zA-Z\u0590-\u05FF\s]+$/.test(name); // Hebrew characters and spaces allowed
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
   const handleAuth = async (event) => {
     event.preventDefault();
     setMessage('');
@@ -25,6 +32,33 @@ const LoginPage = () => {
     if (isSignUp && password !== confirmPassword) {
       setMessage('Passwords do not match');
       setMessageType('error');
+      return;
+    }
+
+    let isValid = true;
+
+    if (!validateName(firstName)) {
+      setFirstNameError('First name should contain only characters.');
+      isValid = false;
+    } else {
+      setFirstNameError('');
+    }
+
+    if (!validateName(lastName)) {
+      setLastNameError('Last name should contain only characters.');
+      isValid = false;
+    } else {
+      setLastNameError('');
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError('Invalid email format.');
+      isValid = false;
+    } else {
+      setEmailError('');
+    }
+
+    if (!isValid) {
       return;
     }
 
@@ -93,6 +127,7 @@ const LoginPage = () => {
                   onChange={(e) => setFirstName(e.target.value)}
                   required
                 />
+                {firstNameError && <span className="error">{firstNameError}</span>}
               </div>
               <div className="form-group">
                 <label htmlFor="lastName">Last Name:</label>
@@ -103,6 +138,7 @@ const LoginPage = () => {
                   onChange={(e) => setLastName(e.target.value)}
                   required
                 />
+                {lastNameError && <span className="error">{lastNameError}</span>}
               </div>
             </>
           )}
@@ -115,6 +151,7 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            {emailError && <span className="error">{emailError}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="password">Password:</label>

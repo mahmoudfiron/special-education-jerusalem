@@ -87,3 +87,9 @@
   text-align: left; /* Align text inside the label to the right */
   direction: rtl; /* Ensure the text inside the label is right-to-left */
 }
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
