@@ -21,21 +21,21 @@ const ContactPage = () => {
     let isValid = true;
 
     if (!validateName(name)) {
-      setNameError('שם חייב להיות באותיות בלבד.');
+      setNameError('שם חייב להיות באותיות בלבד');
       isValid = false;
     } else {
       setNameError('');
     }
 
     if (!validateEmail(email)) {
-      setEmailError('כתובת אימייל לא תקינה.');
+      setEmailError('כתובת אימייל לא תקינה');
       isValid = false;
     } else {
       setEmailError('');
     }
 
     if (phone && !validatePhone(phone)) {
-      setPhoneError('מספר טלפון חייב להיות בן 10 ספרות.');
+      setPhoneError('מספר טלפון חייב להיות בן 10 ספרות');
       isValid = false;
     } else {
       setPhoneError('');
@@ -48,7 +48,7 @@ const ContactPage = () => {
           alert('ההודעה נשלחה בהצלחה!');
         }, (error) => {
           console.log(error.text);
-          alert('שליחת ההודעה נכשלה, אנא נסה שוב.');
+          alert('שליחת ההודעה נכשלה, אנא נסה שוב');
         });
 
       e.target.reset();

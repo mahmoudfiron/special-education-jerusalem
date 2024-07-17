@@ -85,17 +85,18 @@ const ContentUpload = ({ collectionName }) => {
   return (
     <div className="content-upload2">
       <button onClick={() => setShowUpload(!showUpload)}>
-        {showUpload ? 'Hide Upload' : 'Upload'}
+        {showUpload ? 'סגירה' : 'להעלות תוכן'}
       </button>
       {showUpload && (
-        <div className="content-upload">
-          <h2>Upload</h2>
+        <div className="content-upload" dir='rtl'>
+          
+          <h2>להעלות תוכן</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
               value={mainTitle}
               onChange={(e) => setMainTitle(e.target.value)}
-              placeholder="Main Title"
+              placeholder="כותרת ראשית"
               required
             />
             {sections.map((section, index) => (
@@ -104,27 +105,26 @@ const ContentUpload = ({ collectionName }) => {
                   type="text"
                   value={section.secondaryTitle}
                   onChange={(e) => handleSectionChange(index, 'secondaryTitle', e.target.value)}
-                  placeholder="Secondary Title"
+                  placeholder="כותרת משנית"
                 />
                 <ReactQuill
                   value={section.text}
                   onChange={(value) => handleSectionChange(index, 'text', value)}
-                  placeholder="Text"
                 />
                 <input
                   type="file"
                   onChange={(e) => handleSectionChange(index, 'file', e.target.files[0])}
                 />
                 <button type="button" className="remove-section-button" onClick={() => handleRemoveSection(index)}>
-                  Remove Section
+                  הסר סעיף
                 </button>
               </div>
             ))}
             <button type="button" onClick={handleAddSection}>
-              Add Section
+              הוסף סעיף
             </button>
             <button type="submit" disabled={uploading}>
-              {uploading ? 'Uploading...' : 'Post'}
+              {uploading ? 'מעלה...' : 'העלה'}
             </button>
           </form>
         </div>

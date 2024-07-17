@@ -17,13 +17,6 @@ const LoginPage = () => {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-  const [firstNameError, setFirstNameError] = useState('');
-  const [lastNameError, setLastNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-
-  const validateName = (name) => /^[a-zA-Z\u0590-\u05FF\s]+$/.test(name); // Hebrew characters and spaces allowed
-  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
   const handleAuth = async (event) => {
     event.preventDefault();
     setMessage('');
@@ -32,33 +25,6 @@ const LoginPage = () => {
     if (isSignUp && password !== confirmPassword) {
       setMessage('Passwords do not match');
       setMessageType('error');
-      return;
-    }
-
-    let isValid = true;
-
-    if (!validateName(firstName)) {
-      setFirstNameError('First name should contain only characters.');
-      isValid = false;
-    } else {
-      setFirstNameError('');
-    }
-
-    if (!validateName(lastName)) {
-      setLastNameError('Last name should contain only characters.');
-      isValid = false;
-    } else {
-      setLastNameError('');
-    }
-
-    if (!validateEmail(email)) {
-      setEmailError('Invalid email format.');
-      isValid = false;
-    } else {
-      setEmailError('');
-    }
-
-    if (!isValid) {
       return;
     }
 
@@ -79,17 +45,18 @@ const LoginPage = () => {
           uid: user.uid
         });
 
-        setMessage('Signed up successfully!');
+        setMessage('יצרת חשבון בהצלחה');
         setMessageType('success');
       } else {
         await signInWithEmailAndPassword(auth, email, password);
-        setMessage('Logged in successfully!');
+        setMessage('התחברת בהצלחה');
         setMessageType('success');
+
       }
     } catch (error) {
       console.error('Error during authentication:', error.message);
       if (error.code === 'auth/email-already-in-use') {
-        setMessage('Email already exists');
+        setMessage('החשבון קיים כבר');
       } else {
         setMessage(error.message);
       }
@@ -107,7 +74,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className={`overlay ${message ? 'active' : ''}`} />
-      <h2>{isSignUp ? 'Sign Up' : 'Login'}</h2>
+      <h2>{isSignUp ? 'יצירת חשבון' : 'התחברות לאתר'}</h2>
       <div className="login-container">
         {message && (
           <div className={`message ${messageType}`}>
@@ -119,7 +86,7 @@ const LoginPage = () => {
           {isSignUp && (
             <>
               <div className="form-group">
-                <label htmlFor="firstName">First Name:</label>
+                <label htmlFor="firstName" dir='rtl'>שם:</label>
                 <input
                   type="text"
                   id="firstName"
@@ -127,10 +94,9 @@ const LoginPage = () => {
                   onChange={(e) => setFirstName(e.target.value)}
                   required
                 />
-                {firstNameError && <span className="error">{firstNameError}</span>}
               </div>
               <div className="form-group">
-                <label htmlFor="lastName">Last Name:</label>
+                <label htmlFor="lastName" dir='rtl'>שם משפחה:</label>
                 <input
                   type="text"
                   id="lastName"
@@ -138,12 +104,11 @@ const LoginPage = () => {
                   onChange={(e) => setLastName(e.target.value)}
                   required
                 />
-                {lastNameError && <span className="error">{lastNameError}</span>}
               </div>
             </>
           )}
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" dir='rtl'>מייל:</label>
             <input
               type="email"
               id="email"
@@ -151,10 +116,9 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            {emailError && <span className="error">{emailError}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password" dir='rtl'>סיסמה:</label>
             <input
               type="password"
               id="password"
@@ -165,7 +129,7 @@ const LoginPage = () => {
           </div>
           {isSignUp && (
             <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <label htmlFor="confirmPassword" dir='rtl'>אמת סיסמה:</label >
               <input
                 type="password"
                 id="confirmPassword"
@@ -177,17 +141,17 @@ const LoginPage = () => {
           )}
           {isSignUp && (
             <div className="form-group">
-              <label htmlFor="role">Role:</label>
+              <label htmlFor="role">תפקיד:</label>
               <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
-                <option value="user">User</option>
-                <option value="guide">Guide</option>
+                <option value="user">משתמש</option>
+                <option value="guide">מדריך</option>
               </select>
             </div>
           )}
-          <button type="submit">{isSignUp ? 'Sign Up' : 'Login'}</button>
+          <button type="submit">{isSignUp ? 'יצירת חשבון' : 'התחבר'}</button>
         </form>
-        <button className="toggle-auth" onClick={() => setIsSignUp(!isSignUp)}>
-          {isSignUp ? 'Already have an account? Login' : "Don't have an account? Sign Up"}
+        <button className="toggle-auth" onClick={() => setIsSignUp(!isSignUp)} dir='rtl'>
+          {isSignUp ? 'יש לך חשבון ? התחבר' : "אין לך חשבון? יצירת חשבון"}
         </button>
       </div>
     </div>

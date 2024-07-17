@@ -203,9 +203,9 @@ const NavBar = () => {
         </div>
         <div className="auth-button">
           {user ? (
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleLogout}>התנתק</button>
           ) : (
-            <button onClick={() => handleMenuItemClick('/login')}>Sign In</button>
+            <button onClick={() => handleMenuItemClick('/login')}>התחברות</button>
           )}
         </div>
         {showSearchBar && (
@@ -214,7 +214,8 @@ const NavBar = () => {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search..."
+              placeholder="חיפוש..."
+              dir='rtl'
             />
             <button type="submit">
               <FontAwesomeIcon icon={faSearch} />

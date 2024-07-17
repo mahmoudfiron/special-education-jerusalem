@@ -109,15 +109,17 @@ const RatingPage = () => {
 
   return (
     <div className="rating-page">
-      <div className="feedback-container">
+      <div className="feedback-container" >
         <div className="sorting-buttons">
-          <button onClick={() => setFeedbacks([...feedbacks].sort((a, b) => new Date(b.date) - new Date(a.date)))}>Newest</button>
-          <button onClick={() => setFeedbacks([...feedbacks].sort((a, b) => b.stars - a.stars))}>Highest</button>
-          <button onClick={() => setFeedbacks([...feedbacks].sort((a, b) => a.stars - b.stars))}>Lowest</button>
+          <button onClick={() => setFeedbacks([...feedbacks].sort((a, b) => new Date(b.date) - new Date(a.date)))}>הכי חדש</button>
+          <button onClick={() => setFeedbacks([...feedbacks].sort((a, b) => b.stars - a.stars))}>גבוה ביותר</button>
+          <button onClick={() => setFeedbacks([...feedbacks].sort((a, b) => a.stars - b.stars))}>נמוך ביותר</button>
         </div>
         {feedbacks.slice(0, visibleFeedbacks).map((feedback) => (
           <div key={feedback.id} className="feedback-item">
-            <div className="feedback-rating">
+
+            <div className="feedback-rating" >
+
               {[...Array(feedback.stars)].map((_, i) => (
                 <FontAwesomeIcon key={i} icon={faStar} className="star selected" />
               ))}
@@ -129,12 +131,12 @@ const RatingPage = () => {
                   onChange={(e) => setEditingFeedback(e.target.value)}
                   rows="2"
                 />
-                <button onClick={handleUpdate}>Update</button>
+                <button onClick={handleUpdate}>עדכן</button>
               </div>
             ) : (
               <p>{feedback.comment}</p>
             )}
-            <div className="feedback-user">
+            <div className="feedback-user" dir='rtl'>
               <span>{feedback.userName}</span>
               <span>
                 {feedback.date
@@ -145,10 +147,10 @@ const RatingPage = () => {
             {auth.currentUser && (
               <>
                 {auth.currentUser.uid === feedback.userId && (
-                  <button className="edit-button" onClick={() => handleEdit(feedback.id, feedback.comment)}>Edit</button>
+                  <button className="edit-button" onClick={() => handleEdit(feedback.id, feedback.comment)}>הערכה</button>
                 )}
                 {(auth.currentUser.uid === feedback.userId || currentUserRole === 'guide') && (
-                  <button className="delete-button" onClick={() => handleDelete(feedback.id)}>Delete</button>
+                  <button className="delete-button" onClick={() => handleDelete(feedback.id)}>מחק</button>
                 )}
               </>
             )}
