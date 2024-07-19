@@ -149,7 +149,7 @@ const RatingPage = () => {
                 {auth.currentUser.uid === feedback.userId && (
                   <button className="edit-button" onClick={() => handleEdit(feedback.id, feedback.comment)}>הערכה</button>
                 )}
-                {(auth.currentUser.uid === feedback.userId || currentUserRole === 'guide') && (
+                {(auth.currentUser.uid === feedback.userId || currentUserRole === 'guide' || currentUserRole === 'admin') && (
                   <button className="delete-button" onClick={() => handleDelete(feedback.id)}>מחק</button>
                 )}
               </>

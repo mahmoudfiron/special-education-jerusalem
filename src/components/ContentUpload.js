@@ -10,7 +10,7 @@ const ContentUpload = ({ collectionName }) => {
   const [mainTitle, setMainTitle] = useState('');
   const [sections, setSections] = useState([{ secondaryTitle: '', text: '', file: null }]);
   const [uploading, setUploading] = useState(false);
-  const [isGuide, setIsGuide] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const ContentUpload = ({ collectionName }) => {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
         if (userDoc.exists()) {
           const userData = userDoc.data();
-          setIsGuide(userData.role === 'guide');
+          setIsAuthorized(userData.role === 'guide' || userData.role === 'admin');
         }
       }
     };
@@ -78,8 +78,8 @@ const ContentUpload = ({ collectionName }) => {
     setSections(newSections);
   };
 
-  if (!isGuide) {
-    return null; // Do not render the component if the user is not a guide
+  if (!isAuthorized) {
+    return null; // Do not render the component if the user is not a guide or admin
   }
 
   return (
@@ -89,7 +89,6 @@ const ContentUpload = ({ collectionName }) => {
       </button>
       {showUpload && (
         <div className="content-upload" dir='rtl'>
-          
           <h2>להעלות תוכן</h2>
           <form onSubmit={handleSubmit}>
             <input

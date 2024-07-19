@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth, db } from '../firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import './HomePage.css';
 import whoAreWe from '../assets/photo8.jpg';
 
@@ -13,10 +16,26 @@ const images = [
   require('../assets/photo8.jpg'),
   require('../assets/photo9.jpg'),
   require('../assets/photo10.jpg'),
-
 ];
 
 const HomePage = ({ scrollToContact }) => {
+  const [userRole, setUserRole] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        if (userDoc.exists()) {
+          setUserRole(userDoc.data().role);
+        }
+      }
+    };
+
+    fetchUserRole();
+  }, []);
+
   useEffect(() => {
     if (scrollToContact) {
       document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
@@ -25,6 +44,12 @@ const HomePage = ({ scrollToContact }) => {
 
   return (
     <div className="home-page">
+      {userRole === 'admin' && (
+        <div className="admin-button-container">
+          <button className="admin-button" onClick={() => navigate('/admin')}>ניהול הרשאות</button>
+        </div>
+      )}
+
       <div className="introduction">
         <h1 className="intro-text">אנחנו כאן בשביל לעזור לכם בלימודים</h1>
         <p className="intro-par">

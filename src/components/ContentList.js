@@ -165,7 +165,7 @@ const ContentList = ({ collectionName }) => {
                   onClick={() => handleDislike(post.id)}
                 >
                   <FontAwesomeIcon icon={faThumbsDown} />
-                  {userRole === 'guide' && post.dislikes ? ` ${post.dislikes.length}` : ''}
+                  {(userRole === 'guide' || userRole === 'admin') && post.dislikes ? ` ${post.dislikes.length}` : ''}
                 </button>
               </>
             ) : (
@@ -179,12 +179,12 @@ const ContentList = ({ collectionName }) => {
               </>
             )}
           </div>
-          {user && post.authorId === user.uid && (
+          {(user && post.authorId === user.uid) || userRole === 'admin' ? (
             <div>
               <button onClick={() => handleDelete(post.id)} className="delete-button">מחק</button>
               <button onClick={() => setEditPostId(post.id)} className="edit-button">הערכה</button>
             </div>
-          )}
+          ) : null}
         </div>
       ))}
       {editPostId && (

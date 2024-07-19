@@ -205,3 +205,23 @@
   width: 100%;
   height: 100%;
 }
+
+.admin-button-container {
+  position: absolute;
+  top: 220px;
+  left: 10px;
+
+}
+
+.admin-button {
+  background-color: #21004a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-button:hover {
+  background-color: #4aa1c9;
+}

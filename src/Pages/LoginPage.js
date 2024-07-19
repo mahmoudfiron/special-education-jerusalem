@@ -13,7 +13,6 @@ const LoginPage = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
-  const [role, setRole] = useState('user');
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
@@ -39,7 +38,7 @@ const LoginPage = () => {
 
         await setDoc(doc(db, 'users', user.uid), {
           email: email,
-          role: role,
+          role: 'user', // Default role for new users is 'user'
           firstName: firstName,
           lastName: lastName,
           uid: user.uid
@@ -51,7 +50,6 @@ const LoginPage = () => {
         await signInWithEmailAndPassword(auth, email, password);
         setMessage('התחברת בהצלחה');
         setMessageType('success');
-
       }
     } catch (error) {
       console.error('Error during authentication:', error.message);
@@ -137,15 +135,6 @@ const LoginPage = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
-            </div>
-          )}
-          {isSignUp && (
-            <div className="form-group">
-              <label htmlFor="role">תפקיד:</label>
-              <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
-                <option value="user">משתמש</option>
-                <option value="guide">מדריך</option>
-              </select>
             </div>
           )}
           <button type="submit">{isSignUp ? 'יצירת חשבון' : 'התחבר'}</button>

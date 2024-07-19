@@ -20,6 +20,7 @@ import RatingPage from './Pages/RatingPage';
 import ContentUpload from './components/ContentUpload';
 import ContentList from './components/ContentList';
 import SearchResults from './components/SearchResults';
+import AdminPage from './components/AdminPage';
 
 
 const App = () => {
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/upload-content" element={<ContentUpload />} />
             <Route path="/content-list" element={<ContentList />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </Layout>
       </div>
