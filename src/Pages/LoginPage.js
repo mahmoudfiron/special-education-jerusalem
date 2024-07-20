@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { setDoc, doc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -41,15 +41,25 @@ const LoginPage = () => {
           role: 'user', // Default role for new users is 'user'
           firstName: firstName,
           lastName: lastName,
-          uid: user.uid
+          uid: user.uid,
+          blocked: false // Default to not blocked
         });
 
         setMessage('יצרת חשבון בהצלחה');
         setMessageType('success');
       } else {
-        await signInWithEmailAndPassword(auth, email, password);
-        setMessage('התחברת בהצלחה');
-        setMessageType('success');
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+
+        if (userDoc.exists() && userDoc.data().blocked) {
+          setMessage('החשבון הזה נחסם');
+          setMessageType('error');
+          await auth.signOut();
+        } else {
+          setMessage('התחברת בהצלחה');
+          setMessageType('success');
+        }
       }
     } catch (error) {
       console.error('Error during authentication:', error.message);
@@ -77,7 +87,7 @@ const LoginPage = () => {
         {message && (
           <div className={`message ${messageType}`}>
             <p>{message}</p>
-            <button onClick={handleCloseMessage}>Close</button>
+            <button onClick={handleCloseMessage}>סגור</button>
           </div>
         )}
         <form onSubmit={handleAuth}>
